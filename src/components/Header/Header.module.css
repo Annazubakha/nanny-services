@@ -1,0 +1,75 @@
+.header {
+  position: absolute;
+  top: 20px;
+}
+
+.wrapper {
+  display: flex;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  align-items: center;
+  padding: 0 96px;
+  justify-content: space-between;
+}
+.header::after {
+  margin-top: 20px;
+  content: '';
+  border-bottom: 1px solid var(--black-4);
+  width: 100vw;
+  display: block;
+}
+.inside_wrapper {
+  display: flex;
+  align-items: center;
+}
+.auth_links {
+  display: flex;
+  gap: 8px;
+}
+
+.btn_login {
+  border: 1px solid var(--black-4);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 124px;
+  height: 48px;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+}
+
+.btn_register {
+  background-color: var(--background-color-home);
+  border: none;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 168px;
+  height: 48px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+}
+.logo {
+  font-size: 24px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  /* margin-right: 487px; */
+}
+
+.list_pages_links {
+  display: flex;
+  gap: 40px;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  margin-right: 92px;
+}

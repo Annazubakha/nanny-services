@@ -1,0 +1,33 @@
+.wrapper {
+  background-color: var(--background-color-home);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100vh - 64px);
+  gap: 64px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+}
+.bg_photo {
+  width: 699px;
+  height: calc(100vh - 64px);
+}
+
+.description {
+  font-size: 28px;
+  line-height: 107%;
+  letter-spacing: -0.02em;
+}
+
+.inside_wrapper {
+  width: 517px;
+  height: 322px;
+  margin-left: 96px;
+}
