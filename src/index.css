@@ -1,8 +1,4 @@
-html {
-  padding: 32px;
-}
 body {
-  background-color: #fbfbfb;
   font-family: 'Helvetica Neue', sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -11,6 +7,10 @@ body {
   height: 100vh;
   margin: 0;
   position: relative;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 h1,
 h2,
@@ -63,36 +63,9 @@ button {
   font-display: swap;
 }
 :root {
-  --background-color-home: #f03f3b;
+  --background-color-home: #ffa500;
   --text-color: #fbfbfb;
   --black-4: rgba(251, 251, 251, 0.4);
-}
-/* html[data-theme='red'] {
-  --background-color-home: #f03f3b;
-  --button-background-color-hover: #fbfbfb;
-  --button-text-color-hover: #f03f3b;
-  --text-color: #fbfbfb;
-  --black-4: rgba(251, 251, 251, 0.4);
-}
-
-html[data-theme='blue'] {
-  --background-color-home: #0957c3;
-  --button-background-color-hover: #fbfbfb;
-  --button-text-color-hover: #0957c3;
-  --text-color: #fbfbfb;
-  --black-4: rgba(251, 251, 251, 0.4);
-}
-
-html[data-theme='green'] {
-  --background-color-home: #103931;
-  --button-background-color-hover: #fbfbfb;
-  --button-text-color-hover: #103931;
-  --text-color: #fbfbfb;
-  --black-4: rgba(251, 251, 251, 0.4);
-} */
-
-.button:hover,
-.button:focus {
-  background-color: var(--button-background-color-hover);
-  color: var(--button-text-color-hover);
+  --text-secondary-color: rgba(17, 16, 28, 0.5);
+  --text-color-black: #11101c;
 }

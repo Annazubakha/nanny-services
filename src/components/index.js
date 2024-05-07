@@ -2,3 +2,8 @@ export * from './Header/Header.jsx';
 export * from './SharedLayout/SharedLayout.jsx';
 export * from './Icon/Icon.jsx';
 export * from './Button/Button.jsx';
+export * from './BgImg/BgImg.jsx';
+export * from './DecorationTab/DecorationTab.jsx';
+export * from './DecorationTab/MoveDecorationTab.jsx';
+export * from './Modal/Modal.jsx';
+export * from './RegisterForm/RegisterForm.jsx';

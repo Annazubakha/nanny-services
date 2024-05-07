@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import s from './Header.module.css';
-import { Button } from '../Button/Button';
+import { Button, Modal, RegisterForm } from '../../components';
+import { useModal } from '../hooks';
+
 export const Header = () => {
+  const [isModal, toggleIsModal] = useModal();
+  console.log(isModal);
+
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
@@ -24,13 +29,22 @@ export const Header = () => {
               </Button>
             </li>
             <li>
-              <Button className={s.btn_register} type="button">
+              <Button
+                className={s.btn_register}
+                onClick={toggleIsModal}
+                type="button"
+              >
                 Registration
               </Button>
             </li>
           </ul>
         </div>
       </div>
+      {isModal && (
+        <Modal title={'Registration'} toggleModal={toggleIsModal}>
+          <RegisterForm toggleModal={toggleIsModal} />
+        </Modal>
+      )}
     </header>
   );
 };

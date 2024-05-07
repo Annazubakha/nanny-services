@@ -1,10 +1,10 @@
-import { BgImg } from '../../components/BgImg/BgImg';
+import { BgImg, Icon } from 'components';
 import s from './Home.module.css';
-
-// import img1 from '../../assets/images/bg_image@1x.png';
-// import img2 from '../../assets/images/bg_image@2x.png';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Home = () => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <div className={s.wrapper}>
       <div className={s.inside_wrapper}>
@@ -12,8 +12,20 @@ const Home = () => {
         <p className={s.description}>
           Find Babysitters Online for All Occasions
         </p>
+        <Link
+          to="/nannies"
+          className={s.link_start}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onFocus={() => setIsHovered(true)}
+        >
+          Get started
+          <Icon id={isHovered ? 'arrow-right' : 'arrow-top-right'} size={20} />
+        </Link>
       </div>
-      <BgImg className={s.test} />
+      <div>
+        <BgImg />
+      </div>
     </div>
   );
 };

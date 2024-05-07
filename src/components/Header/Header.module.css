@@ -1,13 +1,16 @@
 .header {
   position: absolute;
   top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 .wrapper {
   display: flex;
   font-weight: 500;
   font-size: 24px;
-  line-height: 117%;
+  line-height: 1.17;
   letter-spacing: -0.02em;
   align-items: center;
   padding: 0 96px;
@@ -17,7 +20,7 @@
   margin-top: 20px;
   content: '';
   border-bottom: 1px solid var(--black-4);
-  width: 100vw;
+  width: 1376px;
   display: block;
 }
 .inside_wrapper {
@@ -40,8 +43,13 @@
   background-color: transparent;
   font-weight: 500;
   font-size: 16px;
-  line-height: 125%;
+  line-height: 1.25;
   letter-spacing: -0.01em;
+}
+.btn_login:hover,
+.btn_login:focus {
+  background-color: var(--background-color-home);
+  border: none;
 }
 
 .btn_register {
@@ -55,21 +63,27 @@
   height: 48px;
   font-weight: 500;
   font-size: 16px;
-  line-height: 125%;
+  line-height: 1.25;
   letter-spacing: -0.01em;
+}
+
+.btn_register:hover,
+.btn_register:focus {
+  background-color: var(--text-color);
+  color: var(--background-color-home);
+  border: 1px solid var(--black-4);
 }
 .logo {
   font-size: 24px;
-  line-height: 117%;
+  line-height: 1.17;
   letter-spacing: -0.02em;
-  /* margin-right: 487px; */
 }
 
 .list_pages_links {
   display: flex;
   gap: 40px;
   font-size: 16px;
-  line-height: 125%;
+  line-height: 1.25;
   letter-spacing: -0.01em;
   margin-right: 92px;
 }

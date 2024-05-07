@@ -1,33 +1,54 @@
 .wrapper {
   background-color: var(--background-color-home);
   border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: calc(100vh - 64px);
   gap: 64px;
+  width: 1376px;
+  height: 736px;
 }
 
 .title {
   font-weight: 500;
   font-size: 70px;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.03em;
   margin-bottom: 28px;
+  margin-top: 183px;
 }
 .bg_photo {
   width: 699px;
-  height: calc(100vh - 64px);
+  height: 736px;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .description {
   font-size: 28px;
-  line-height: 107%;
+  line-height: 1.07;
   letter-spacing: -0.02em;
+  margin-bottom: 64px;
 }
 
 .inside_wrapper {
   width: 517px;
-  height: 322px;
+  display: flex;
+  flex-direction: column;
   margin-left: 96px;
+}
+
+.link_start {
+  background-color: transparent;
+  border: 1px solid var(--black-4);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  height: 60px;
+  color: var(--text-color);
+  gap: 18px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }

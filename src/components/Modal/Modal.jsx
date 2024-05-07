@@ -5,8 +5,10 @@ import { Icon } from 'components';
 
 import s from './Modal.module.css';
 
-const modalRoot = document.querySelector('#modalRoot');
-
+const modalRoot =
+  document.getElementById('modalRoot') || document.createElement('div');
+modalRoot.id = 'modalRoot';
+document.body.appendChild(modalRoot);
 export const Modal = ({ children, toggleModal, title, pad = '' }) => {
   useEffect(() => {
     const handleEscape = (e) => {
@@ -31,13 +33,15 @@ export const Modal = ({ children, toggleModal, title, pad = '' }) => {
   };
 
   return ReactDOM.createPortal(
-    <div onClick={handleClickOnBackdrop} className={s.modalWrapper}>
-      <div className={s.modalContent} style={{ padding: pad && pad }}>
+    <div onClick={handleClickOnBackdrop} className={s.wrapper}>
+      <div className={s.content} style={{ padding: pad && pad }}>
         <button className={s.closeModalBtn} type="button" onClick={toggleModal}>
-          <Icon id="close" className={s.closeModalIcon} size={12} />
+          <Icon id="close" className={s.closeModalIcon} size={16} />
         </button>
-        <h2 className={s.modalTitle}>{title}</h2>
-        {children}
+        <div>
+          <h2 className={s.title}>{title}</h2>
+          {children}
+        </div>
       </div>
     </div>,
     modalRoot

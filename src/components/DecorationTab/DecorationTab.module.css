@@ -1,0 +1,35 @@
+.wrapper {
+  border-radius: 20px;
+  width: 284px;
+  height: 118px;
+  background-color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.description {
+  font-size: 16px;
+  color: var(--text-secondary-color);
+}
+.amount {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text-color-black);
+}
+.wrapper_icon {
+  background-color: var(--background-color-home);
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+}
+
+.inside_wrapper {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}
