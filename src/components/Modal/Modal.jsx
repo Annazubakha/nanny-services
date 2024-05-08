@@ -36,7 +36,7 @@ export const Modal = ({ children, toggleModal, title, pad = '' }) => {
     <div onClick={handleClickOnBackdrop} className={s.wrapper}>
       <div className={s.content} style={{ padding: pad && pad }}>
         <button className={s.closeModalBtn} type="button" onClick={toggleModal}>
-          <Icon id="close" className={s.closeModalIcon} size={16} />
+          <Icon id="close" size={32} />
         </button>
         <div>
           <h2 className={s.title}>{title}</h2>

@@ -13,7 +13,6 @@
 
 .content {
   position: relative;
-  border-radius: 8px;
   background-color: var(--text-color);
   width: 566px;
   display: flex;
@@ -21,13 +20,12 @@
   align-items: flex-start;
   gap: 40px;
   padding: 64px;
+  border-radius: 30px;
 }
 
 .closeModalBtn {
   position: absolute;
-  z-index: 999;
-  width: 32px;
-  height: 32px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,10 +33,6 @@
   right: 20px;
   background-color: transparent;
   border: none;
-}
-
-.closeModalIcon {
-  stroke: var(--text-color-black);
 }
 
 .title {

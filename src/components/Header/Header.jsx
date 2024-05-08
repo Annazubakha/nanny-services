@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import s from './Header.module.css';
-import { Button, Modal, RegisterForm } from '../../components';
+import { Button, Modal, RegisterForm, LoginForm } from '../../components';
 import { useModal } from '../hooks';
 
 export const Header = () => {
-  const [isModal, toggleIsModal] = useModal();
-  console.log(isModal);
-
+  const [isModalRegister, toggleIsModalRegister] = useModal();
+  const [isModalLogin, toggleIsModalLogin] = useModal();
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
@@ -24,14 +23,18 @@ export const Header = () => {
           </ul>
           <ul className={s.auth_links}>
             <li>
-              <Button className={s.btn_login} type="button">
+              <Button
+                className={s.btn_login}
+                type="button"
+                onClick={toggleIsModalLogin}
+              >
                 Log In
               </Button>
             </li>
             <li>
               <Button
                 className={s.btn_register}
-                onClick={toggleIsModal}
+                onClick={toggleIsModalRegister}
                 type="button"
               >
                 Registration
@@ -40,9 +43,14 @@ export const Header = () => {
           </ul>
         </div>
       </div>
-      {isModal && (
-        <Modal title={'Registration'} toggleModal={toggleIsModal}>
-          <RegisterForm toggleModal={toggleIsModal} />
+      {isModalRegister && (
+        <Modal title="Registration" toggleModal={toggleIsModalRegister}>
+          <RegisterForm toggleModal={toggleIsModalRegister} />
+        </Modal>
+      )}
+      {isModalLogin && (
+        <Modal title="Log In" toggleModal={toggleIsModalLogin}>
+          <LoginForm toggleModal={toggleIsModalLogin} />
         </Modal>
       )}
     </header>

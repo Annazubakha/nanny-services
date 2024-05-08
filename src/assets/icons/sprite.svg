@@ -53,6 +53,7 @@
 <svg id="icon-done" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 12.5L5 15L12.5 22.5L25 10L22.5 7.5L12.5 17.5L7.5 12.5Z" fill="#FBFBFB" />
 </svg>
+
 <svg id="icon-close" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M24 8L8 24" stroke="#11101C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
   <path d="M8 8L24 24" stroke="#11101C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />

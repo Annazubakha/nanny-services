@@ -7,3 +7,4 @@ export * from './DecorationTab/DecorationTab.jsx';
 export * from './DecorationTab/MoveDecorationTab.jsx';
 export * from './Modal/Modal.jsx';
 export * from './RegisterForm/RegisterForm.jsx';
+export * from './LoginForm/LoginForm.jsx';
