@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import s from './Header.module.css';
-import { Button, Modal, RegisterForm, LoginForm } from '../../components';
+import { Modal, RegisterForm, LoginForm } from '../../components';
 import { useModal } from '../hooks';
 
 export const Header = () => {
   const [isModalRegister, toggleIsModalRegister] = useModal();
   const [isModalLogin, toggleIsModalLogin] = useModal();
+  const location = useLocation();
+  if (location.pathname === '/nannies') {
+    return <div className={s.test}>TEST</div>;
+  }
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
@@ -23,22 +27,22 @@ export const Header = () => {
           </ul>
           <ul className={s.auth_links}>
             <li>
-              <Button
+              <button
                 className={s.btn_login}
                 type="button"
                 onClick={toggleIsModalLogin}
               >
                 Log In
-              </Button>
+              </button>
             </li>
             <li>
-              <Button
+              <button
                 className={s.btn_register}
                 onClick={toggleIsModalRegister}
                 type="button"
               >
                 Registration
-              </Button>
+              </button>
             </li>
           </ul>
         </div>

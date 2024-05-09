@@ -87,3 +87,9 @@
   letter-spacing: -0.01em;
   margin-right: 92px;
 }
+
+.test {
+  background-color: var(--background-color-home);
+  width: 100vw;
+  height: 88px;
+}

@@ -4,9 +4,9 @@ import s from './RegisterForm.module.css';
 import { registerSchema } from '../../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
-import { Icon, Button } from 'components';
+import { Icon } from 'components';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase';
+import { auth } from '../../firebase/firebase';
 import { toast } from 'react-toastify';
 export const RegisterForm = () => {
   const [showPass, setShowPass] = useState(false);
@@ -30,7 +30,7 @@ export const RegisterForm = () => {
       );
       const user = userCredential.user;
       console.log('User created:', user);
-      toast.sucess(
+      toast.success(
         'Your account was registered successfully. Please, log in to your account.'
       );
     } catch (error) {
@@ -73,9 +73,9 @@ export const RegisterForm = () => {
             )}
           </button>
         </div>
-        <Button className={s.btn_submit} type="submit">
+        <button className={s.btn_submit} type="submit">
           Sign Up
-        </Button>
+        </button>
       </form>
     </>
   );

@@ -4,9 +4,9 @@ import s from './LoginForm.module.css';
 import { loginSchema } from '../../schemas';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
-import { Icon, Button } from 'components';
+import { Icon } from 'components';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase';
+import { auth } from '../../firebase/firebase';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 export const LoginForm = () => {
@@ -31,9 +31,9 @@ export const LoginForm = () => {
         data.password
       );
       const user = userCredential.user;
-      console.log('User created:', user);
+      console.log('User login:', user);
       navigate('/nannies');
-      toast.sucess('LogIn is successfully.');
+      toast.success('LogIn is successfully.');
     } catch (error) {
       toast.error(
         "Password is incorrect or user doesn't exist. Please, try again."
@@ -72,9 +72,9 @@ export const LoginForm = () => {
             )}
           </button>
         </div>
-        <Button className={s.btn_submit} type="submit">
+        <button className={s.btn_submit} type="submit">
           Log In
-        </Button>
+        </button>
       </form>
     </>
   );
