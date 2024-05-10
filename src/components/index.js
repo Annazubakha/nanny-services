@@ -10,3 +10,6 @@ export * from './LoginForm/LoginForm.jsx';
 export * from './Filters/Filters.jsx';
 export * from './NanniesList/NanniesList.jsx';
 export * from './NannyItem/NannyItem.jsx';
+export * from './ReviewsItem/ReviewsItem.jsx';
+export * from './ReviewsList/ReviewsList.jsx';
+export * from './Appointment/Appointment.jsx';

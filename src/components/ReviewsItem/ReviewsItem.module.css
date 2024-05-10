@@ -1,0 +1,50 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--text-color-black);
+}
+
+.icon {
+  stroke: #ffc531;
+  fill: #ffc531;
+}
+
+.letter {
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+  color: var(--background-color-home);
+  background-color: var(--orange-light);
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.wrapper_icon {
+  display: flex;
+  gap: 8px;
+
+  align-items: center;
+}
+
+.wrapper_inside {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+.comment {
+  font-weight: 400;
+  color: var(--text-secondary-color);
+}

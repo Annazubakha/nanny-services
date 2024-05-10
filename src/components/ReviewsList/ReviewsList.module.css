@@ -1,27 +1,22 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 25px;
+  margin: 48px 0;
 }
-
-.btn_more {
+.btn_appointment {
   border-radius: 30px;
-  width: 159px;
-  height: 48px;
-  background-color: var(--background-color-home);
   text-align: center;
+  width: 215px;
+  height: 48px;
+  font-weight: 700;
+  background-color: var(--background-color-home);
+  color: var(--text-color);
 }
 
-.btn_more:hover,
-.btn_more:focus {
+.btn_appointment:hover,
+.btn_appointment:focus {
   border: 1px solid var(--background-color-home);
   background-color: transparent;
   color: var(--background-color-home);
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-  align-items: center;
 }

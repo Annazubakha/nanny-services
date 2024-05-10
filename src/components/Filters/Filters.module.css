@@ -41,8 +41,10 @@
   flex-direction: column;
   gap: 12px;
   color: var(--dropdown_color);
+  display: none;
+  padding: 14px 18px;
 }
 
 .filter_wrapper {
-  display: none;
+  margin-bottom: 32px;
 }

@@ -37,6 +37,7 @@ button {
   cursor: pointer;
   color: var(--text-color);
   transition: background-color 250ms ease;
+  border: none;
 }
 
 @font-face {
