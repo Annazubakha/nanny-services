@@ -10,6 +10,10 @@ export const Header = () => {
   if (location.pathname === '/nannies') {
     return <div className={s.test}>TEST</div>;
   }
+
+  const currentPage = (pathname) => {
+    return location.pathname === pathname ? s.current_page : '';
+  };
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
@@ -18,11 +22,15 @@ export const Header = () => {
         </Link>
         <div className={s.inside_wrapper}>
           <ul className={s.list_pages_links}>
-            <li>
-              <Link>Home</Link>
+            <li className={s.list_pages_link_item}>
+              <Link className={currentPage('/')} to="/">
+                Home
+              </Link>
             </li>
-            <li>
-              <Link to="/nannies">Nannies</Link>
+            <li className={s.list_pages_link_item}>
+              <Link className={currentPage('/nannies')} to="/nannies">
+                Nannies
+              </Link>
             </li>
           </ul>
           <ul className={s.auth_links}>

@@ -24,38 +24,9 @@ export const NanniesList = () => {
   return (
     <div className={s.wrapper}>
       <ul className={s.list}>
-        {nannies?.map(
-          ({
-            name,
-            avatar_url,
-            education,
-            experience,
-            kids_age,
-            characters,
-            about,
-            birthday,
-            location,
-            price_per_hour,
-            rating,
-            reviews,
-          }) => (
-            <NannyItem
-              key={name}
-              name={name}
-              avatar_url={avatar_url}
-              education={education}
-              experience={experience}
-              kids_age={kids_age}
-              characters={characters}
-              about={about}
-              birthday={birthday}
-              rating={rating}
-              price_per_hour={price_per_hour}
-              location={location}
-              reviews={reviews}
-            />
-          )
-        )}
+        {nannies?.map((nanny) => (
+          <NannyItem key={name} {...nanny} />
+        ))}
       </ul>
 
       <button className={s.btn_more}>Load more</button>

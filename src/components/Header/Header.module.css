@@ -93,3 +93,17 @@
   width: 100vw;
   height: 88px;
 }
+
+.current_page::after {
+  position: absolute;
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  bottom: -12px;
+  left: calc(50% - 4px);
+}
+.list_pages_link_item {
+  position: relative;
+}
