@@ -9,7 +9,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-export const LoginForm = () => {
+export const LoginForm = ({ toggleModal }) => {
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const passVisibility = () => {
@@ -34,6 +34,7 @@ export const LoginForm = () => {
       console.log('User login:', user);
       navigate('/nannies');
       toast.success('LogIn is successfully.');
+      toggleModal();
     } catch (error) {
       toast.error(
         "Password is incorrect or user doesn't exist. Please, try again."

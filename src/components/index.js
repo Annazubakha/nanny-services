@@ -13,3 +13,5 @@ export * from './NannyItem/NannyItem.jsx';
 export * from './ReviewsItem/ReviewsItem.jsx';
 export * from './ReviewsList/ReviewsList.jsx';
 export * from './Appointment/Appointment.jsx';
+export * from './LogOut/LogOut.jsx';
+export * from './ModalLogOut/ModalLogOut.jsx';

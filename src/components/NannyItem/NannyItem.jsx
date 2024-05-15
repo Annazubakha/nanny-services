@@ -27,6 +27,7 @@ export const NannyItem = ({
     setIsReadMore(!isReadMore);
   };
 
+  const handleAddFavorite = () => {};
   return (
     <li className={s.item}>
       <div className={s.nanny_card}>
@@ -87,7 +88,7 @@ export const NannyItem = ({
             <span className={s.price}> {price_per_hour}$</span>
           </p>
         </div>
-        <button className={s.btn_heart}>
+        <button className={s.btn_heart} onClick={handleAddFavorite}>
           <Icon id="heart" size={26} />
         </button>
       </div>

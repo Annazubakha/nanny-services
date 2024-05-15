@@ -6,9 +6,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { Icon } from 'components';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
+import { auth, database } from '../../firebase/firebase';
 import { toast } from 'react-toastify';
-export const RegisterForm = () => {
+import { ref, set } from 'firebase/database';
+export const RegisterForm = ({ toggleModal }) => {
   const [showPass, setShowPass] = useState(false);
   const passVisibility = () => {
     setShowPass((prevState) => !prevState);
@@ -22,17 +23,22 @@ export const RegisterForm = () => {
   });
 
   const onSubmit = async (data) => {
+    const { email, password, name } = data;
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
-        data.email,
-        data.password
+        email,
+        password
       );
       const user = userCredential.user;
+      await set(ref(database, `users/${user.uid}`), {
+        email: user.email,
+        name: name,
+      });
       console.log('User created:', user);
-      toast.success(
-        'Your account was registered successfully. Please, log in to your account.'
-      );
+      toast.success('Your account was registered successfully.');
+      toggleModal();
+      return user;
     } catch (error) {
       toast.error(error.message);
     }
