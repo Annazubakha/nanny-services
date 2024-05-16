@@ -1,4 +1,4 @@
-import { ref, get, query, limitToFirst } from 'firebase/database';
+import { ref, get, query, limitToFirst, set } from 'firebase/database';
 import { database } from '../firebase/firebase';
 import { toast } from 'react-toastify';
 
@@ -12,16 +12,23 @@ export const fetchNannies = async (limit) => {
     } else {
       return null;
     }
-  } catch (error) {
+  } catch {
     toast.error(`Something went wrong.`);
   }
 };
 export const getUserData = async (uid) => {
   const snapshot = await get(ref(database, `users/${uid}`));
   if (snapshot.exists()) {
-    console.log(snapshot.val());
     return snapshot.val();
   } else {
-    throw new Error('User data not found');
+    toast.error(`Something went wrong.`);
+  }
+};
+
+export const postAppoinment = async (appointment) => {
+  try {
+    await set(ref(database, '/appointments'), { appointment });
+  } catch {
+    toast.error(`Something went wrong. Please try again.`);
   }
 };

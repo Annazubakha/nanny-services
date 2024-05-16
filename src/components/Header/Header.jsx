@@ -23,7 +23,7 @@ export const Header = () => {
   const [userName, setUserName] = useState('');
   const location = useLocation();
   const headerNannies = () => {
-    return location.pathname === '/nannies' ? s.header_nannies : s.header;
+    return location.pathname === '/' ? s.header : s.header_nannies;
   };
 
   const currentPage = (pathname) => {
@@ -64,7 +64,8 @@ export const Header = () => {
               Nannies
             </Link>
           </li>
-          {location.pathname === '/nannies' && (
+          {(location.pathname === '/nannies' ||
+            location.pathname === '/favorites') && (
             <li className={s.list_pages_link_item}>
               <Link className={currentPage('/favorites')} to="/favorites">
                 Favorites

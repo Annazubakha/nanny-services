@@ -2,7 +2,10 @@ import { useForm } from 'react-hook-form';
 import s from './Appointment.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { appointmentSchema } from '../../schemas';
-export const Appointment = ({ name, avatar_url }) => {
+import { toast } from 'react-toastify';
+import { postAppoinment } from '../../api/api';
+
+export const Appointment = ({ name, avatar_url, toggleModal }) => {
   const {
     register,
     handleSubmit,
@@ -10,6 +13,20 @@ export const Appointment = ({ name, avatar_url }) => {
   } = useForm({
     resolver: yupResolver(appointmentSchema),
   });
+  const onSubmit = async (appointment) => {
+    try {
+      await postAppoinment(appointment);
+      toast.success(
+        'Appointment was made sucessfull. Please wait a call from our manager.'
+      );
+      toggleModal();
+    } catch (error) {
+      console.log(error.message);
+      toast.error(
+        "Password is incorrect or user doesn't exist. Please, try again."
+      );
+    }
+  };
   return (
     <div className={s.wrapper}>
       <p className={s.description}>
@@ -24,14 +41,30 @@ export const Appointment = ({ name, avatar_url }) => {
           <p className={s.name}>{name}</p>
         </div>
       </div>
-      <form onSubmit={handleSubmit} className={s.form}>
-        <div className={s.input_wrapper}>
-          <input type="text" {...register('address')} placeholder="Address" />
-          <p className={s.form_error}>{errors.address?.message}</p>
+      <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
+        <div className={s.input_wrapper_second}>
+          <div className={s.input_wrapper}>
+            <input type="text" {...register('address')} placeholder="Address" />
+            <p className={s.form_error}>{errors.address?.message}</p>
+          </div>
+          <div className={s.input_wrapper}>
+            <input type="text" {...register('phone')} placeholder="+380" />
+            <p className={s.form_error}>{errors.phone?.message}</p>
+          </div>
         </div>
-        <div className={s.input_wrapper}>
-          <input type="text" {...register('age')} placeholder="Child's age" />
-          <p className={s.form_error}>{errors.age?.message}</p>
+        <div className={s.input_wrapper_second}>
+          <div className={s.input_wrapper}>
+            <input type="text" {...register('age')} placeholder="Child's age" />
+            <p className={s.form_error}>{errors.age?.message}</p>
+          </div>
+          <div className={s.input_wrapper}>
+            <input
+              type="time"
+              {...register('time')}
+              placeholder="Child's age"
+            />
+            <p className={s.form_error}>{errors.time?.message}</p>
+          </div>
         </div>
         <div className={s.input_wrapper}>
           <input type="email" {...register('email')} placeholder="Email" />
@@ -40,14 +73,18 @@ export const Appointment = ({ name, avatar_url }) => {
         <div className={s.input_wrapper}>
           <input
             type="text"
-            {...register('text')}
+            {...register('name')}
             placeholder="Father's or mother's name"
           />
-          <p className={s.form_error}>{errors.text?.message}</p>
+          <p className={s.form_error}>{errors.name?.message}</p>
         </div>
         <div className={s.input_wrapper}>
-          <textarea {...register('comment')} placeholder="Comment" />
-          <p className={s.form_error}>{errors.text?.message}</p>
+          <textarea
+            type="text"
+            {...register('comment')}
+            placeholder="Comment"
+          />
+          <p className={s.form_error}>{errors.comment?.message}</p>
         </div>
         <button className={s.btn_submit} type="submit">
           Send

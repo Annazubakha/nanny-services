@@ -113,11 +113,11 @@
 
 .header_nannies {
   .wrapper {
+    width: 100vw;
     background-color: var(--background-color-home);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100vw;
     height: 88px;
     padding: 0 128px;
   }

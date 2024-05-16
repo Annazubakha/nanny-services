@@ -8,9 +8,19 @@ export const appointmentSchema = yup.object().shape({
       'Email is invalid.'
     )
     .required('Email is required'),
-  password: yup
+  address: yup.string().required('Address is required.'),
+  age: yup
     .string()
-    .matches(/^\S*$/, 'Your password should not contain spaces.')
-    .required('Password is required.')
-    .min(8, 'Password must be at least 8 characters.'),
+    .required("Child's age is required.")
+    .matches(/^[0-9]*$/, 'Age should contain only numbers.')
+    .matches(/^(0|[1-9]|1[0-8]|18)$/, 'Age age should be less then 18.'),
+  name: yup
+    .string()
+    .required("Father's or mother's name is required.")
+    .min(3, 'Your name should contain 3 charactes or more.'),
+  phone: yup
+    .string()
+    .required('Phone is required.')
+    .matches(/^\+?\d{12}$/, 'Number format +380961234567'),
+  comment: yup.string().required('Comment is required.'),
 });
