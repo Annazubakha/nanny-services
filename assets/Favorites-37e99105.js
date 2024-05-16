@@ -1,0 +1,1 @@
+import{j as r}from"./index-585e8a58.js";import{F as s}from"./Filters-8292b278.js";const e="_wrapper_1w2zx_1",p={wrapper:e},o=()=>r.jsx("div",{className:p.wrapper,children:r.jsx(s,{})});export{o as default};
