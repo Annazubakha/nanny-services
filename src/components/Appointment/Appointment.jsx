@@ -3,7 +3,7 @@ import s from './Appointment.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { appointmentSchema } from '../../schemas';
 import { toast } from 'react-toastify';
-import { postAppoinment } from '../../api/api';
+import { postAppointment } from '../../api/api';
 
 export const Appointment = ({ name, avatar_url, toggleModal }) => {
   const {
@@ -15,7 +15,7 @@ export const Appointment = ({ name, avatar_url, toggleModal }) => {
   });
   const onSubmit = async (appointment) => {
     try {
-      await postAppoinment(appointment);
+      await postAppointment(appointment);
       toast.success(
         'Appointment was made sucessfull. Please wait a call from our manager.'
       );
