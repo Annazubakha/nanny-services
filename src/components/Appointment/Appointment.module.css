@@ -77,7 +77,7 @@ textarea {
   outline: none;
 }
 
-.input_time {
+/* .input_time {
   border-radius: 12px;
   border: 1px solid var(--border-input);
   position: relative;
@@ -86,14 +86,9 @@ textarea {
   display: flex !important;
   align-items: center !important;
   padding-left: 18px;
-}
+} */
 .icon {
   position: absolute;
   top: 16px;
   right: 18px;
-}
-:global(.rc-time-picker-input) {
-  border: none !important;
-  font-size: 16px !important;
-  padding: 0 !important;
 }

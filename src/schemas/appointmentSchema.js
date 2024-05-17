@@ -23,4 +23,5 @@ export const appointmentSchema = yup.object().shape({
     .required('Phone is required.')
     .matches(/^\+?\d{12}$/, 'Number format +380961234567'),
   comment: yup.string().required('Comment is required.'),
+  time: yup.string().required('Time is required.'),
 });

@@ -15,3 +15,4 @@ export * from './ReviewsList/ReviewsList.jsx';
 export * from './Appointment/Appointment.jsx';
 export * from './LogOut/LogOut.jsx';
 export * from './ModalLogOut/ModalLogOut.jsx';
+export * from './Loader/Loader.jsx';

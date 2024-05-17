@@ -25,7 +25,7 @@ export const getUserData = async (uid) => {
   }
 };
 
-export const postAppoinment = async (appointment) => {
+export const postAppointment = async (appointment) => {
   try {
     await set(ref(database, '/appointments'), { appointment });
   } catch {
