@@ -39,7 +39,9 @@ button {
   transition: background-color 250ms ease;
   border: none;
 }
-
+input::placeholder {
+  color: var(--text-color-black);
+}
 @font-face {
   font-family: 'Helvetica Neue', sans-serif;
   src: url('./assets/fonts/HelveticaNeue-Roman.otf') format('otf');

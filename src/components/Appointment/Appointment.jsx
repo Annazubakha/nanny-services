@@ -1,13 +1,18 @@
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import s from './Appointment.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { appointmentSchema } from '../../schemas';
 import { toast } from 'react-toastify';
 import { postAppointment } from '../../api/api';
+import TimePicker from 'rc-time-picker';
+
+import 'rc-time-picker/assets/index.css';
+import { Icon } from 'components';
 
 export const Appointment = ({ name, avatar_url, toggleModal }) => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -26,6 +31,10 @@ export const Appointment = ({ name, avatar_url, toggleModal }) => {
         "Password is incorrect or user doesn't exist. Please, try again."
       );
     }
+  };
+
+  const customFormatInput = () => {
+    return <span>Привіт</span>;
   };
   return (
     <div className={s.wrapper}>
@@ -58,11 +67,24 @@ export const Appointment = ({ name, avatar_url, toggleModal }) => {
             <p className={s.form_error}>{errors.age?.message}</p>
           </div>
           <div className={s.input_wrapper}>
-            <input
-              type="time"
-              {...register('time')}
-              placeholder="Child's age"
+            <Controller
+              control={control}
+              name="time"
+              render={({ field }) => (
+                <TimePicker
+                  renderInput={customFormatInput}
+                  showSecond={false}
+                  clearIcon={<Icon id="clock" className={s.icon} size={20} />}
+                  placeholder="00:00"
+                  value={field.value}
+                  onChange={(value) => {
+                    console.log(value);
+                    field.onChange(value);
+                  }}
+                />
+              )}
             />
+
             <p className={s.form_error}>{errors.time?.message}</p>
           </div>
         </div>

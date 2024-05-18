@@ -5,7 +5,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 9999;
+  z-index: 999;
   width: 100vw;
   height: 100vh;
   background: rgba(21, 21, 21, 0.5);
