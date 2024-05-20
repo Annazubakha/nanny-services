@@ -39,7 +39,8 @@ button {
   transition: background-color 250ms ease;
   border: none;
 }
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: var(--text-color-black);
 }
 @font-face {

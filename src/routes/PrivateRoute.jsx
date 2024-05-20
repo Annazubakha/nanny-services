@@ -16,7 +16,7 @@ export const PrivateRoute = ({ children }) => {
         setIsLoggedIn(true);
       } else {
         setIsLoggedIn(false);
-        toast.info('Please enter to your account to visit this page.');
+        toast.info('Please log in to your account to visit this page.');
       }
     });
 

@@ -16,3 +16,5 @@ export * from './Appointment/Appointment.jsx';
 export * from './LogOut/LogOut.jsx';
 export * from './ModalLogOut/ModalLogOut.jsx';
 export * from './Loader/Loader.jsx';
+export * from './GetUser/GetUser.jsx';
+export * from './NanniesListFavorites/NanniesListFavorites.jsx';

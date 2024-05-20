@@ -34,7 +34,6 @@ export const Header = () => {
     const listen = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setAuthUser(user);
-        console.log(user);
         const userData = await getUserData(user.uid);
         setUserName(userData.name);
       } else {

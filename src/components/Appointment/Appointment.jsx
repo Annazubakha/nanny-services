@@ -21,6 +21,7 @@ export const Appointment = ({ name, avatar_url, toggleModal }) => {
   const onSubmit = async (appointment) => {
     try {
       await postAppointment(appointment);
+      console.log(appointment);
       toast.success(
         'Appointment was made sucessfull. Please wait a call from our manager.'
       );
@@ -33,9 +34,6 @@ export const Appointment = ({ name, avatar_url, toggleModal }) => {
     }
   };
 
-  const customFormatInput = () => {
-    return <span>Привіт</span>;
-  };
   return (
     <div className={s.wrapper}>
       <p className={s.description}>
@@ -72,13 +70,11 @@ export const Appointment = ({ name, avatar_url, toggleModal }) => {
               name="time"
               render={({ field }) => (
                 <TimePicker
-                  renderInput={customFormatInput}
                   showSecond={false}
                   clearIcon={<Icon id="clock" className={s.icon} size={20} />}
-                  placeholder="00:00"
+                  placeholder="Meeting time"
                   value={field.value}
                   onChange={(value) => {
-                    console.log(value);
                     field.onChange(value);
                   }}
                 />

@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.btn_more {
+  border-radius: 30px;
+  width: 159px;
+  height: 48px;
+  background-color: var(--background-color-home);
+  text-align: center;
+}
+
+.btn_more:hover,
+.btn_more:focus {
+  border: 1px solid var(--background-color-home);
+  background-color: transparent;
+  color: var(--background-color-home);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  align-items: center;
+}

@@ -1,8 +1,15 @@
-import { convertedAge, convertedCharacters } from '../../helpers';
+import { GetUser, ReviewsList } from 'components';
+import { useEffect, useState } from 'react';
 import { Icon } from 'components';
+
+import {
+  addToFavorites,
+  getUserFavorites,
+  removeFromFavorites,
+} from '../../api/api';
+import { toast } from 'react-toastify';
+import { convertedAge, convertedCharacters } from '../../helpers';
 import s from './NannyItem.module.css';
-import { useState } from 'react';
-import { ReviewsList } from '../ReviewsList/ReviewsList';
 
 export const NannyItem = ({
   name,
@@ -18,16 +25,70 @@ export const NannyItem = ({
   rating,
   reviews,
 }) => {
+  const userId = GetUser();
+
   const age = convertedAge(birthday);
   const formatedCharacters = convertedCharacters(characters);
 
   const [isReadMore, setIsReadMore] = useState(false);
+  const [isFavorites, setIsFavorites] = useState(false);
+
+  useEffect(() => {
+    const fetchUserFavorites = async () => {
+      try {
+        const userFavorites = await getUserFavorites(userId);
+        if (userFavorites) {
+          const favoriteKeys = Object.keys(userFavorites);
+          const isNannyInFavorites = favoriteKeys.some(
+            (key) => userFavorites[key].nanny.name === name
+          );
+
+          setIsFavorites(isNannyInFavorites);
+        }
+      } catch {
+        toast.error('Something went wrong. Please try again.');
+      }
+    };
+
+    if (userId) {
+      fetchUserFavorites();
+    } else {
+      setIsFavorites(false);
+    }
+  }, [userId, name]);
+
+  const handleFavoriteToggle = async () => {
+    if (!userId) {
+      toast.info('Please log in to your account to add nanny to favorites.');
+    } else {
+      try {
+        const userFavorites = await getUserFavorites(userId);
+        if (userFavorites) {
+          const favoriteKeys = Object.keys(userFavorites);
+          const favoriteNanny = favoriteKeys.find(
+            (key) => userFavorites[key].nanny.name === name
+          );
+          if (favoriteNanny) {
+            await removeFromFavorites(userId, favoriteNanny);
+            setIsFavorites(false);
+          } else {
+            await addToFavorites(userId, { name });
+            setIsFavorites(true);
+          }
+        } else {
+          await addToFavorites(userId, { name });
+          setIsFavorites(true);
+        }
+      } catch {
+        toast.error('Something went wrong. Please try again.');
+      }
+    }
+  };
 
   const toggleReadMore = () => {
     setIsReadMore(!isReadMore);
   };
 
-  const handleAddFavorite = () => {};
   return (
     <li className={s.item}>
       <div className={s.nanny_card}>
@@ -88,8 +149,12 @@ export const NannyItem = ({
             <span className={s.price}> {price_per_hour}$</span>
           </p>
         </div>
-        <button className={s.btn_heart} onClick={handleAddFavorite}>
-          <Icon id="heart" size={26} />
+        <button className={s.btn_heart} onClick={handleFavoriteToggle}>
+          {isFavorites ? (
+            <Icon id="heart-active" size={26} />
+          ) : (
+            <Icon id="heart" size={26} />
+          )}
         </button>
       </div>
     </li>

@@ -30,8 +30,7 @@ export const LoginForm = ({ toggleModal }) => {
         data.email,
         data.password
       );
-      const user = userCredential.user;
-      console.log('User login:', user);
+      userCredential.user;
       navigate('/nannies');
       toast.success('LogIn is successfully.');
       toggleModal();
