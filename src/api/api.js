@@ -4,9 +4,9 @@ import { toast } from 'react-toastify';
 
 export const fetchNannies = async (limit) => {
   try {
-    const nanniesRef = ref(database, '/nannies');
-    const nanniesQuery = query(nanniesRef, limitToFirst(limit));
-    const snapshot = await get(nanniesQuery);
+    const snapshot = await get(
+      query(ref(database, `/nannies`), limitToFirst(limit))
+    );
     if (snapshot.exists()) {
       return snapshot.val();
     } else {
@@ -16,6 +16,7 @@ export const fetchNannies = async (limit) => {
     toast.error(`Something went wrong.`);
   }
 };
+
 export const getUserData = async (uid) => {
   const snapshot = await get(ref(database, `users/${uid}`));
   if (snapshot.exists()) {
@@ -35,7 +36,7 @@ export const postAppointment = async (appointment) => {
 
 export const addToFavorites = async (uid, nanny) => {
   try {
-    await push(ref(database, `users/${uid}/favorites`), { nanny });
+    await push(ref(database, `users/${uid}/favorites`), nanny);
   } catch {
     toast.error(`Something went wrong. Please try again.`);
   }
@@ -49,10 +50,42 @@ export const removeFromFavorites = async (uid, pushId) => {
 };
 
 export const getUserFavorites = async (uid) => {
-  const snapshot = await get(ref(database, `users/${uid}/favorites`));
-  if (snapshot.exists()) {
-    return snapshot.val();
-  } else {
-    return;
+  try {
+    const snapshot = await get(ref(database, `users/${uid}/favorites`));
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      return null;
+    }
+  } catch {
+    toast.error(`Something went wrong. Please try again.`);
+  }
+};
+
+export const getUserFavoritesLimited = async (uid, limit) => {
+  try {
+    const snapshot = await get(
+      query(ref(database, `users/${uid}/favorites`), limitToFirst(limit))
+    );
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      return null;
+    }
+  } catch {
+    toast.error(`Something went wrong.`);
+  }
+};
+
+export const getUserFavoritesTotal = async (uid) => {
+  try {
+    const snapshot = await get(query(ref(database, `users/${uid}/favorites`)));
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      return null;
+    }
+  } catch {
+    toast.error(`Something went wrong.`);
   }
 };

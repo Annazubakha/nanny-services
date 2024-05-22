@@ -40,7 +40,7 @@ export const NannyItem = ({
         if (userFavorites) {
           const favoriteKeys = Object.keys(userFavorites);
           const isNannyInFavorites = favoriteKeys.some(
-            (key) => userFavorites[key].nanny.name === name
+            (key) => userFavorites[key].name === name
           );
 
           setIsFavorites(isNannyInFavorites);
@@ -66,20 +66,47 @@ export const NannyItem = ({
         if (userFavorites) {
           const favoriteKeys = Object.keys(userFavorites);
           const favoriteNanny = favoriteKeys.find(
-            (key) => userFavorites[key].nanny.name === name
+            (key) => userFavorites[key].name === name
           );
           if (favoriteNanny) {
             await removeFromFavorites(userId, favoriteNanny);
             setIsFavorites(false);
           } else {
-            await addToFavorites(userId, { name });
+            await addToFavorites(userId, {
+              name,
+              avatar_url,
+              education,
+              experience,
+              kids_age,
+              characters,
+              about,
+              birthday,
+              location,
+              price_per_hour,
+              rating,
+              reviews,
+            });
             setIsFavorites(true);
           }
         } else {
-          await addToFavorites(userId, { name });
+          await addToFavorites(userId, {
+            name,
+            avatar_url,
+            education,
+            experience,
+            kids_age,
+            characters,
+            about,
+            birthday,
+            location,
+            price_per_hour,
+            rating,
+            reviews,
+          });
           setIsFavorites(true);
         }
-      } catch {
+      } catch (error) {
+        console.log(error.message);
         toast.error('Something went wrong. Please try again.');
       }
     }

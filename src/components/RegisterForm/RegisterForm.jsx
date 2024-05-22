@@ -9,8 +9,10 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, database } from '../../firebase/firebase';
 import { toast } from 'react-toastify';
 import { ref, set } from 'firebase/database';
+import { Loader } from 'components';
 export const RegisterForm = ({ toggleModal }) => {
   const [showPass, setShowPass] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const passVisibility = () => {
     setShowPass((prevState) => !prevState);
   };
@@ -25,6 +27,7 @@ export const RegisterForm = ({ toggleModal }) => {
   const onSubmit = async (data) => {
     const { email, password, name } = data;
     try {
+      setIsLoading(true);
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -42,6 +45,7 @@ export const RegisterForm = ({ toggleModal }) => {
     } catch (error) {
       toast.error(error.message);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -81,6 +85,9 @@ export const RegisterForm = ({ toggleModal }) => {
         </div>
         <button className={s.btn_submit} type="submit">
           Sign Up
+          {isLoading && (
+            <Loader heigth={9} width={3} classTitle="smallLoader" />
+          )}
         </button>
       </form>
     </>

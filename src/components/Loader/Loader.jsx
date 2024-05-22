@@ -1,11 +1,15 @@
-import { CircleLoader } from 'react-spinners';
+import { BeatLoader } from 'react-spinners';
 
 import s from './Loader.module.css';
 
-export const Loader = () => {
+export const Loader = ({ size, classTitle }) => {
   return (
-    <div className={s.loader_wrapper}>
-      <CircleLoader color="#ffa500" size={150} />
+    <div
+      className={
+        classTitle === 'smallLoader' ? s.loaderWrapper : s.loader_wrapper
+      }
+    >
+      <BeatLoader color="#ffa500" height={size} width={size} />
     </div>
   );
 };

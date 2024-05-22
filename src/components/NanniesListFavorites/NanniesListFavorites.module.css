@@ -25,3 +25,8 @@
   gap: 64px;
   align-items: center;
 }
+
+.text_any {
+  color: var(--background-color-home);
+  font-size: 64px;
+}

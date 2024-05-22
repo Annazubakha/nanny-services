@@ -28,7 +28,8 @@ input {
   border-radius: 30px;
   align-items: center;
   justify-content: center;
-  width: 438px;
+  width: 100%;
+  position: relative;
   height: 52px;
   border: 1px solid transparent;
   display: flex;
@@ -62,4 +63,9 @@ input {
   position: absolute;
   top: 16px;
   right: 18px;
+}
+.loader {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

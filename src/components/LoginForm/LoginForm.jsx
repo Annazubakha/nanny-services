@@ -9,9 +9,11 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { Loader } from 'components';
 export const LoginForm = ({ toggleModal }) => {
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const passVisibility = () => {
     setShowPass((prevState) => !prevState);
   };
@@ -25,6 +27,7 @@ export const LoginForm = ({ toggleModal }) => {
 
   const onSubmit = async (data) => {
     try {
+      setIsLoading(true);
       const userCredential = await signInWithEmailAndPassword(
         auth,
         data.email,
@@ -34,11 +37,12 @@ export const LoginForm = ({ toggleModal }) => {
       navigate('/nannies');
       toast.success('LogIn is successfully.');
       toggleModal();
-    } catch (error) {
+    } catch {
       toast.error(
         "Password is incorrect or user doesn't exist. Please, try again."
       );
     }
+    setIsLoading(false);
   };
 
   return (
@@ -72,8 +76,12 @@ export const LoginForm = ({ toggleModal }) => {
             )}
           </button>
         </div>
+
         <button className={s.btn_submit} type="submit">
           Log In
+          {isLoading && (
+            <Loader heigth={9} width={3} classTitle="smallLoader" />
+          )}
         </button>
       </form>
     </>
