@@ -1,1 +1,0 @@
-import{j as s,t as r}from"./index-0a587e30.js";import{F as a}from"./Filters-389408c2.js";const e=()=>s.jsx("div",{className:r.wrapper,children:s.jsx("ul",{className:r.list})}),t="_wrapper_1w2zx_1",p={wrapper:t},n=()=>s.jsxs("div",{className:p.wrapper,children:[s.jsx(a,{}),s.jsx(e,{})]});export{n as default};
