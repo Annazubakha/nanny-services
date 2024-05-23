@@ -35,6 +35,8 @@ export const Header = () => {
       if (user) {
         setAuthUser(user);
         const userData = await getUserData(user.uid);
+        console.log(userData);
+
         setUserName(userData.name);
       } else {
         setAuthUser(null);
@@ -115,7 +117,10 @@ export const Header = () => {
 
       {isModalRegister && (
         <Modal title="Registration" toggleModal={toggleIsModalRegister}>
-          <RegisterForm toggleModal={toggleIsModalRegister} />
+          <RegisterForm
+            toggleModal={toggleIsModalRegister}
+            setUserName={setUserName}
+          />
         </Modal>
       )}
       {isModalLogin && (

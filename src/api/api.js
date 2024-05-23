@@ -18,10 +18,15 @@ export const fetchNannies = async (limit) => {
 };
 
 export const getUserData = async (uid) => {
-  const snapshot = await get(ref(database, `users/${uid}`));
-  if (snapshot.exists()) {
-    return snapshot.val();
-  } else {
+  try {
+    const snapshot = await get(ref(database, `users/${uid}`));
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      return;
+    }
+  } catch (error) {
+    console.log(error.message);
     toast.error(`Something went wrong.`);
   }
 };

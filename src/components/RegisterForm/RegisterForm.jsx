@@ -10,9 +10,10 @@ import { auth, database } from '../../firebase/firebase';
 import { toast } from 'react-toastify';
 import { ref, set } from 'firebase/database';
 import { Loader } from 'components';
-export const RegisterForm = ({ toggleModal }) => {
+export const RegisterForm = ({ toggleModal, setUserName }) => {
   const [showPass, setShowPass] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
   const passVisibility = () => {
     setShowPass((prevState) => !prevState);
   };
@@ -25,8 +26,8 @@ export const RegisterForm = ({ toggleModal }) => {
   });
 
   const onSubmit = async (data) => {
-    const { email, password, name } = data;
     try {
+      const { email, password, name } = data;
       setIsLoading(true);
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -40,10 +41,11 @@ export const RegisterForm = ({ toggleModal }) => {
       });
       console.log('User created:', user);
       toast.success('Your account was registered successfully.');
+      setUserName(name);
       toggleModal();
       return user;
-    } catch (error) {
-      toast.error(error.message);
+    } catch {
+      toast.error('Something went wrong.');
     }
     setIsLoading(false);
   };
