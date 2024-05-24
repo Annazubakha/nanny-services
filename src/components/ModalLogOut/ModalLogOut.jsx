@@ -36,7 +36,7 @@ export const ModalLogOut = ({ children, toggleModal, title }) => {
     <div onClick={handleClickOnBackdrop} className={s.wrapper}>
       <div className={s.content}>
         <button className={s.closeModalBtn} type="button" onClick={toggleModal}>
-          <Icon id="close" size={32} />
+          <Icon id="close" className={s.icon_close} size={32} />
         </button>
         <div>
           <h2 className={s.title}>{title}</h2>

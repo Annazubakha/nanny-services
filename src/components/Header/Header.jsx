@@ -78,7 +78,7 @@ export const Header = () => {
           <div className={s.user_wrapper}>
             <div className={s.userdetails_wrapper}>
               <div className={s.usericon_wrapper}>
-                <Icon id="user" size={24} />
+                <Icon id="user" className={s.user_icon} size={24} />
               </div>
               <p className={s.user_name}>{userName}</p>
             </div>
@@ -87,7 +87,7 @@ export const Header = () => {
               type="button"
               onClick={toggleIsModalLogOut}
             >
-              Log out
+              Log Out
             </button>
           </div>
         )}

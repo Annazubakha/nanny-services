@@ -1,13 +1,18 @@
 .item {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25;
   color: var(--text-color-black);
 }
-
+@media only screen and (min-width: 1440px) {
+  .item {
+    gap: 16px;
+    font-size: 16px;
+  }
+}
 .icon {
   stroke: #ffc531;
   fill: #ffc531;
@@ -15,35 +20,52 @@
 
 .letter {
   border-radius: 100px;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   color: var(--background-color-home);
   background-color: var(--orange-light);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+@media only screen and (min-width: 1440px) {
+  .letter {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+}
+
 .wrapper {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
+}
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    gap: 12px;
+  }
 }
 
 .wrapper_icon {
   display: flex;
-  gap: 8px;
-
+  gap: 4px;
   align-items: center;
 }
-
+@media only screen and (min-width: 1440px) {
+  .wrapper_icon {
+    gap: 8px;
+  }
+}
 .wrapper_inside {
   display: flex;
   gap: 4px;
   flex-direction: column;
 }
+
 .comment {
   font-weight: 400;
   color: var(--text-secondary-color);

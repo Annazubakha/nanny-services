@@ -1,6 +1,11 @@
 .wrapper {
   color: var(--text-color-black);
-  font-size: 16px;
+  font-size: 14px;
+}
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    font-size: 16px;
+  }
 }
 
 .description {
@@ -20,19 +25,33 @@
 }
 
 .inside_wrapper {
-  margin: 40px 0;
+  margin: 20px 0;
   display: flex;
   gap: 14px;
-  align-items: center;
 }
-
+@media only screen and (min-width: 1440px) {
+  .inside_wrapper {
+    margin: 40px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+}
 .btn_submit {
-  margin-top: 24px;
+  margin-top: 12px;
   width: 100%;
-  height: 52px;
+  height: 36px;
   border-radius: 30px;
   background-color: var(--background-color-home);
 }
+
+@media only screen and (min-width: 1440px) {
+  .btn_submit {
+    margin-top: 24px;
+    height: 52px;
+  }
+}
+
 .btn_submit:hover,
 .btn_submit:focus {
   border: 1px solid var(--background-color-home);
@@ -43,9 +62,13 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
 }
-
+@media only screen and (min-width: 1440px) {
+  .form {
+    gap: 16px;
+  }
+}
 .form_error {
   color: var(--error-color);
   position: absolute;
@@ -53,18 +76,29 @@
   margin-left: 8px;
   bottom: -17px;
 }
+
 .input_wrapper {
   position: relative;
 }
 .input_wrapper_second {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   position: relative;
+  font-size: 14px;
   input {
-    width: 232px;
+    width: 175px;
   }
 }
+@media only screen and (min-width: 1440px) {
+  .input_wrapper_second {
+    gap: 8px;
 
+    input {
+      font-size: 16px;
+      width: 232px;
+    }
+  }
+}
 input {
   width: 100%;
 }
@@ -80,21 +114,37 @@ textarea {
 
 .icon {
   position: absolute;
-  top: 16px !important;
-  right: 18px !important;
+  top: 12px !important;
+  right: 10px !important;
   z-index: 1003 !important;
+}
+
+@media only screen and (min-width: 1440px) {
+  .icon {
+    top: 16px !important;
+    right: 18px !important;
+  }
 }
 
 :global(.rc-time-picker-input) {
   border-radius: 12px !important;
   border: 1px solid var(--border-input) !important;
-  width: 232px;
-  height: 52px !important;
+  width: 175px;
+  height: 44px !important;
   display: flex !important;
   padding-left: 18px !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
   color: var(--text-color-black) !important;
 }
+
+@media only screen and (min-width: 1440px) {
+  :global(.rc-time-picker-input) {
+    width: 232px;
+    height: 52px !important;
+    font-size: 16px !important;
+  }
+}
+
 :global(.rc-time-picker-panel-input) {
   height: 30px !important;
 }
@@ -103,14 +153,22 @@ textarea {
   background-color: white !important;
   width: 150px;
   position: absolute !important;
-  top: 60px !important;
-  left: 82px !important;
+  top: 57px !important;
+  left: 25px !important;
   z-index: 1001 !important;
   box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07) !important;
   border: none !important;
   border-radius: 12px !important;
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (min-width: 1440px) {
+  :global(.rc-time-picker-panel-inner) {
+    width: 150px;
+    top: 60px !important;
+    left: 82px !important;
+  }
 }
 :global(.rc-time-picker-panel-combobox) {
   display: flex !important;
@@ -120,7 +178,12 @@ textarea {
 :global(.rc-time-picker-panel-select) {
   color: var(--dropdown_color);
   font-family: inherit;
-  font-size: 16px !important;
+  font-size: 14px !important;
+}
+@media only screen and (min-width: 1440px) {
+  :global(.rc-time-picker-panel-select) {
+    font-size: 16px !important;
+  }
 }
 
 :global(.rc-time-picker-panel-select-option-selected) {

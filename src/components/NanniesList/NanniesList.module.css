@@ -7,9 +7,16 @@
 .btn_more {
   border-radius: 30px;
   width: 159px;
-  height: 48px;
+  height: 36px;
   background-color: var(--background-color-home);
   text-align: center;
+  font-size: 14px;
+}
+@media only screen and (min-width: 1440px) {
+  .btn_more {
+    height: 48px;
+    font-size: 16px;
+  }
 }
 
 .btn_more:hover,
@@ -22,6 +29,12 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 32px;
   align-items: center;
+}
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    gap: 64px;
+  }
 }

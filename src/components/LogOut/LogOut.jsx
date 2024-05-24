@@ -23,8 +23,7 @@ export const LogOut = ({ toggleModal }) => {
     <div className={s.wrapper}>
       <p className={s.description}>Are you sure that you want to log out?</p>
       <button onClick={handleLogout} className={s.btn_submit}>
-        Log out{' '}
-        {isLoading && <Loader heigth={9} width={3} classTitle="smallLoader" />}
+        Log Out {isLoading && <Loader size={8} classTitle="smallLoader" />}
       </button>
     </div>
   );

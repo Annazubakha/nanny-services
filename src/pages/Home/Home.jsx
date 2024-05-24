@@ -24,7 +24,8 @@ const Home = () => {
         </Link>
       </div>
       <div>
-        <BgImg />
+        {' '}
+        <BgImg />{' '}
       </div>
     </div>
   );

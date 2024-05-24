@@ -1,17 +1,34 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  margin: 48px 0;
+  gap: 18px;
+  margin: 24px 0;
+}
+
+@media only screen and (min-width: 1440px) {
+  .list {
+    gap: 25px;
+    margin: 48px 0;
+  }
 }
 .btn_appointment {
   border-radius: 30px;
   text-align: center;
-  width: 215px;
-  height: 48px;
+  width: 180px;
+  height: 36px;
   font-weight: 700;
   background-color: var(--background-color-home);
   color: var(--text-color);
+}
+
+@media only screen and (min-width: 1440px) {
+  .btn_appointment {
+    width: 215px;
+    height: 48px;
+    font-weight: 700;
+    background-color: var(--background-color-home);
+    color: var(--text-color);
+  }
 }
 
 .btn_appointment:hover,

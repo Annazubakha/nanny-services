@@ -124,6 +124,20 @@ export const NannyItem = ({
           <Icon className={s.icon_online} id="online" size={14} />
         </div>
         <div>
+          <div className={s.wrapper_top}>
+            <p className={s.wrapper_top_inside}>
+              <Icon id="location" size={16} />
+              {location}
+            </p>
+            <p className={s.wrapper_top_inside}>
+              <Icon className={s.icon_star} id="star" size={16} />
+              Rating: {rating}
+            </p>
+            <p className={s.price_text}>
+              Price / 1 hour:
+              <span className={s.price}> {price_per_hour}$</span>
+            </p>
+          </div>
           <p className={s.title}>Nanny</p>
           <p className={s.accent_name}>{name}</p>
           <div className={s.wrapper_inside}>
@@ -162,20 +176,7 @@ export const NannyItem = ({
             </button>
           )}
         </div>
-        <div className={s.wrapper_top}>
-          <p className={s.wrapper_top_inside}>
-            <Icon id="location" size={16} />
-            {location}
-          </p>
-          <p className={s.wrapper_top_inside}>
-            <Icon className={s.icon_star} id="star" size={16} />
-            Rating: {rating}
-          </p>
-          <p className={s.price_text}>
-            Price / 1 hour:
-            <span className={s.price}> {price_per_hour}$</span>
-          </p>
-        </div>
+
         <button className={s.btn_heart} onClick={handleFavoriteToggle}>
           {isFavorites ? (
             <Icon id="heart-active" size={26} />

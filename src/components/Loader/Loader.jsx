@@ -9,7 +9,7 @@ export const Loader = ({ size, classTitle }) => {
         classTitle === 'smallLoader' ? s.loaderWrapper : s.loader_wrapper
       }
     >
-      <BeatLoader color="#ffa500" height={size} width={size} />
+      <BeatLoader color="#ffa500" size={size} />
     </div>
   );
 };

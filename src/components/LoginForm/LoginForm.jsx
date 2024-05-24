@@ -79,9 +79,7 @@ export const LoginForm = ({ toggleModal }) => {
 
         <button className={s.btn_submit} type="submit">
           Log In
-          {isLoading && (
-            <Loader heigth={9} width={3} classTitle="smallLoader" />
-          )}
+          {isLoading && <Loader size={8} classTitle="smallLoader" />}
         </button>
       </form>
     </>

@@ -28,5 +28,11 @@
 
 .text_any {
   color: var(--background-color-home);
-  font-size: 64px;
+  font-size: 36px;
+}
+@media only screen and (min-width: 1440px) {
+  .text_any {
+    color: var(--background-color-home);
+    font-size: 64px;
+  }
 }

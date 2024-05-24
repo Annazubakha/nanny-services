@@ -39,7 +39,6 @@ export const RegisterForm = ({ toggleModal, setUserName }) => {
         email: user.email,
         name: name,
       });
-      console.log('User created:', user);
       toast.success('Your account was registered successfully.');
       setUserName(name);
       toggleModal();
@@ -87,9 +86,7 @@ export const RegisterForm = ({ toggleModal, setUserName }) => {
         </div>
         <button className={s.btn_submit} type="submit">
           Sign Up
-          {isLoading && (
-            <Loader heigth={9} width={3} classTitle="smallLoader" />
-          )}
+          {isLoading && <Loader size={8} classTitle="smallLoader" />}
         </button>
       </form>
     </>
