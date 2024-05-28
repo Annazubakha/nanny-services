@@ -1,11 +1,16 @@
 .wrapper {
   display: none;
 }
-
 .insideWrapper {
   height: 315px;
-  width: 699px;
+  width: 100%;
 }
+@media only screen and (min-width: 768px) {
+  .insideWrapper {
+    width: 699px;
+  }
+}
+
 @media only screen and (min-width: 1440px) {
   .insideWrapper {
     height: 640px;

@@ -14,10 +14,10 @@
     letter-spacing: -0.02em;
     align-items: center;
     justify-content: space-between;
-    padding: 0 64px;
+    padding: 0 32px;
   }
   .logo {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   .btn_login {
@@ -48,6 +48,16 @@
     letter-spacing: -0.01em;
     width: 100px;
     height: 36px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .header {
+    .wrapper {
+      padding: 0 64px;
+    }
+    .logo {
+      font-size: 18px;
+    }
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -112,11 +122,16 @@
   }
 }
 .list_pages_links {
-  display: flex;
-  gap: 15px;
-  font-size: 14px;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .list_pages_links {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .list_pages_links {
@@ -142,7 +157,17 @@
   display: flex;
   gap: 8px;
 }
-
+@media only screen and (max-width: 767.99px) {
+  .auth_links {
+    display: none;
+  }
+}
+/* @media only screen and (min-width: 768px) {
+  .auth_links {
+    display: flex;
+    gap: 8px;
+  }
+} */
 .current_page::after {
   position: absolute;
   content: '';
@@ -174,9 +199,11 @@
     align-items: center;
     justify-content: space-between;
     height: 60px;
-    padding: 0 48px;
+    padding: 0 32px;
   }
-
+  .logo {
+    font-size: 24px;
+  }
   .list_pages_links {
     margin-right: 0;
   }
@@ -210,6 +237,18 @@
     height: 36px;
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .header_nannies {
+    .wrapper {
+      padding: 0 64px;
+    }
+    .logo {
+      font-size: 18px;
+    }
+  }
+}
+
 .btn_login:hover,
 .btn_login:focus {
   background-color: var(--text-color);
@@ -246,20 +285,24 @@
 }
 
 .btn_logout {
-  border: 1px solid var(--black-4);
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90px;
-  height: 36px;
-  background-color: transparent;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  display: none;
 }
-
+@media only screen and (min-width: 768px) {
+  .btn_logout {
+    border: 1px solid var(--black-4);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 36px;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+}
 @media only screen and (min-width: 1440px) {
   .btn_logout {
     width: 124px;
@@ -275,9 +318,14 @@
 }
 
 .userdetails_wrapper {
-  display: flex;
-  gap: 7px;
-  align-items: center;
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .userdetails_wrapper {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .userdetails_wrapper {
@@ -286,12 +334,17 @@
 }
 
 .user_name {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.11;
-  letter-spacing: -0.01em;
+  display: none;
 }
-
+@media only screen and (min-width: 768px) {
+  .user_name {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.11;
+    letter-spacing: -0.01em;
+  }
+}
 @media only screen and (min-width: 1440px) {
   .user_name {
     font-weight: 700;
@@ -305,13 +358,18 @@
 }
 
 .usericon_wrapper {
-  background-color: var(--text-color);
-  height: 30px;
-  width: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .usericon_wrapper {
+    background-color: var(--text-color);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .usericon_wrapper {
@@ -322,13 +380,37 @@
 }
 
 .user_wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+  display: none;
 }
+@media only screen and (min-width: 768px) {
+  .user_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
 @media only screen and (min-width: 1440px) {
   .user_wrapper {
     gap: 24px;
   }
+}
+
+.burger_btn {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .burger_btn {
+    display: none;
+  }
+}
+
+.burger_icon {
+  fill: var(--text-color);
+  stroke: var(--text-color);
 }

@@ -72,11 +72,17 @@
 .form_error {
   color: var(--error-color);
   position: absolute;
-  font-size: 12px;
+  font-size: 8px;
   margin-left: 8px;
-  bottom: -17px;
-}
 
+  bottom: -10px;
+}
+@media only screen and (min-width: 1440px) {
+  .form_error {
+    font-size: 12px;
+    bottom: -17px;
+  }
+}
 .input_wrapper {
   position: relative;
 }
@@ -85,10 +91,16 @@
   gap: 4px;
   position: relative;
   font-size: 14px;
-  input {
-    width: 175px;
+}
+
+@media only screen and (min-width: 768px) {
+  .input_wrapper_second {
+    input {
+      width: 175px;
+    }
   }
 }
+
 @media only screen and (min-width: 1440px) {
   .input_wrapper_second {
     gap: 8px;

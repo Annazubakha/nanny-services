@@ -1,63 +1,102 @@
 .wrapper {
   background-color: var(--background-color-home);
-  border-radius: 30px;
-  gap: 64px;
-  width: 1376px;
-  height: 736px;
-  margin-top: 32px;
+  border-radius: 0;
+  width: 100%;
+  height: 100vh;
+  margin-top: 0;
 }
-@media only screen and (min-width: 768px) and (max-width: 1439.99px) {
+@media only screen and (min-width: 768px) {
   .wrapper {
     border-radius: 30px;
-    gap: 64px;
-    width: 100%;
     height: calc(100vh - 40px);
     margin-top: 32px;
     padding-bottom: 50px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    background-color: var(--background-color-home);
+    border-radius: 30px;
+    width: 1376px;
+    height: 736px;
+    margin-top: 32px;
+  }
+}
 .title {
   font-weight: 500;
-  font-size: 70px;
+  font-size: 48px;
   line-height: 1;
   letter-spacing: -0.03em;
   margin-bottom: 28px;
   margin-top: 183px;
 }
-@media only screen and (min-width: 768px) and (max-width: 1439.99px) {
+@media only screen and (min-width: 768px) {
   .title {
     font-size: 56px;
     line-height: 1;
     letter-spacing: -0.03em;
     margin-bottom: 28px;
-    margin-top: 130px;
+    margin-top: 190px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .title {
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    margin-top: 183px;
+  }
+}
+
 .description {
-  font-size: 28px;
+  font-size: 22px;
   line-height: 1.07;
   letter-spacing: -0.02em;
   margin-bottom: 64px;
 }
-@media only screen and (min-width: 768px) and (max-width: 1439.99px) {
+@media only screen and (min-width: 768px) {
   .description {
     font-size: 20px;
     margin-bottom: 32px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .description {
+    font-size: 28px;
+    line-height: 1.07;
+    letter-spacing: -0.02em;
+    margin-bottom: 64px;
+  }
+}
+
 .inside_wrapper {
-  width: 517px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-left: 96px;
+  padding: 0 32px;
 }
-@media only screen and (min-width: 768px) and (max-width: 1439.99px) {
+@media only screen and (min-width: 768px) {
   .inside_wrapper {
     width: 650px;
-    margin-left: 0;
     padding: 0 64px;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .inside_wrapper {
+    width: 517px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 96px;
+    padding: 0;
+  }
+}
+
 .link_start {
   background-color: transparent;
   border: 1px solid var(--black-4);

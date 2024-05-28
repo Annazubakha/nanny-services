@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 
 import { Icon } from 'components';
 
-import s from './Modal.module.css';
+import s from './ModalAppointment.module.css';
 
 const modalRoot =
   document.getElementById('modalRoot') || document.createElement('div');
 modalRoot.id = 'modalRoot';
 document.body.appendChild(modalRoot);
-export const Modal = ({ children, toggleModal, title }) => {
+export const ModalAppointment = ({ children, toggleModal, title }) => {
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.code === 'Escape') {
@@ -34,7 +34,7 @@ export const Modal = ({ children, toggleModal, title }) => {
 
   return ReactDOM.createPortal(
     <div onClick={handleClickOnBackdrop} className={s.wrapper}>
-      <div className={s.content}>
+      <div className={s.content_appointment}>
         <button className={s.closeModalBtn} type="button" onClick={toggleModal}>
           <Icon id="close" size={32} />
         </button>

@@ -1,6 +1,6 @@
 import { ReviewsItem } from 'components';
 import s from './ReviewsList.module.css';
-import { Modal, Appointment } from '../../components';
+import { ModalAppointment, Appointment } from '../../components';
 import { useModal } from '../hooks';
 export const ReviewsList = ({ reviews, name, avatar_url }) => {
   const [isModalAppointment, toggleIsModalAppointment] = useModal();
@@ -20,7 +20,7 @@ export const ReviewsList = ({ reviews, name, avatar_url }) => {
         Make an appointment
       </button>
       {isModalAppointment && (
-        <Modal
+        <ModalAppointment
           title="Make an appointment with a babysitter"
           toggleModal={toggleIsModalAppointment}
         >
@@ -29,7 +29,7 @@ export const ReviewsList = ({ reviews, name, avatar_url }) => {
             name={name}
             avatar_url={avatar_url}
           />
-        </Modal>
+        </ModalAppointment>
       )}
     </>
   );

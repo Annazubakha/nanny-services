@@ -11,6 +11,21 @@
   box-shadow: 4px 4px 6px rgba(255, 165, 0, 0.1);
   position: relative;
 }
+@media only screen and (min-width: 768px) {
+  .item {
+    width: 100%;
+    border-radius: 24px;
+    background-color: var(--text-color);
+    border: 2px solid var(--background-color-home);
+    color: var(--text-secondary-color);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 18px;
+    box-shadow: 4px 4px 6px rgba(255, 165, 0, 0.1);
+    position: relative;
+  }
+}
 @media only screen and (min-width: 1440px) {
   .item {
     font-size: 16px;
@@ -20,9 +35,16 @@
 
 .nanny_card {
   display: flex;
+  flex-direction: column;
   gap: 16px;
 }
-
+@media only screen and (min-width: 768px) {
+  .nanny_card {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+}
 @media only screen and (min-width: 1440px) {
   .nanny_card {
     gap: 24px;
@@ -90,6 +112,15 @@
   line-height: 1;
   margin-bottom: 12px;
 }
+
+@media only screen and (max-width: 767.99px) {
+  .accent_name {
+    position: absolute;
+    font-size: 14px;
+    top: 65px;
+    left: 115px;
+  }
+}
 @media only screen and (min-width: 1440px) {
   .accent_name {
     font-size: 24px;
@@ -110,7 +141,16 @@
 .wrapper_top {
   display: flex;
   align-items: center;
-  gap: 16px;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+@media only screen and (min-width: 768px) {
+  .wrapper_top {
+    gap: 16px;
+    flex-direction: row;
+    margin-bottom: 0;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -136,11 +176,25 @@
 .wrapper_top_inside {
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: 8px;
   line-height: 1.5;
   color: var(--text-color-black);
 }
 
+@media only screen and (max-width: 767.99px) {
+  .wrapper_top_inside {
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper_top_inside {
+    flex-direction: row;
+    gap: 8px;
+  }
+}
 .price {
   color: var(--green-color);
 }
@@ -148,6 +202,13 @@
   font-weight: 500;
   margin-top: 14px;
 }
+
+@media only screen and (max-width: 767.99px) {
+  .about {
+    text-align: justify;
+  }
+}
+
 @media only screen and (min-width: 1440px) {
   .about {
     margin-top: 24px;
@@ -156,12 +217,14 @@
 .title {
   margin-bottom: 8px;
 }
-
-@media only screen and (min-width: 768px) and (max-width: 1439.99px) {
+@media only screen and (max-width: 767.99px) {
   .title {
-    margin-top: 8px;
+    position: absolute;
+    top: 40px;
+    left: 115px;
   }
 }
+
 .price_text {
   color: var(--text-color-black);
 }

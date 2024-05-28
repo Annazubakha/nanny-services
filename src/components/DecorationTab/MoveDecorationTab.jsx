@@ -18,10 +18,10 @@ export const MoveDecorationTab = ({ children }) => {
         let heightAdjustment = parentHeight - 118;
         let widthAdjustment = parentWidth - 284;
 
-        // if (windowSize.innerWidth < 768) {
-        //   heightAdjustment = parentHeight - 80;
-        //   widthAdjustment = parentWidth - 245;
-        // }
+        if (windowSize.innerWidth < 768) {
+          heightAdjustment = parentHeight - 80;
+          widthAdjustment = parentWidth - 200;
+        }
 
         setPosition((prevPosition) => {
           const newBottom = prevPosition.bottom + 5 * direction.bottom;
