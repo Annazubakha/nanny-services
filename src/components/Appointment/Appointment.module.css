@@ -138,98 +138,90 @@ textarea {
   }
 }
 
-:global(.rc-time-picker-input) {
-  border-radius: 12px !important;
-  border: 1px solid var(--border-input) !important;
-  width: 175px;
-  height: 44px !important;
-  display: flex !important;
-  padding-left: 18px !important;
-  font-size: 14px !important;
+:global(.react-datepicker__header--time) {
+  padding: 16px !important;
+  border-bottom: 1px solid var(--border-input) !important;
+  width: 151px !important;
+  text-align: left !important;
+  font-size: 16px !important;
+  color: var(--text-color-black) !important;
+  background-color: transparent !important;
+  line-height: 1.5 !important;
+  font-family: inherit !important;
+}
+
+@media only screen and (min-width: 768px) {
+  :global(.react-datepicker__header--time) {
+    width: 175px !important;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  :global(.react-datepicker__header--time) {
+    width: 232px !important;
+  }
+}
+
+:global(.react-datepicker-time__header) {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  padding: 0 0 !important;
+}
+
+:global(.react-datepicker__time-container) {
+  width: 151px !important;
+  height: 180px !important;
+  font-size: 16px !important;
   color: var(--text-color-black) !important;
 }
-
-@media only screen and (min-width: 1440px) {
-  :global(.rc-time-picker-input) {
-    width: 232px;
-    height: 52px !important;
-    font-size: 16px !important;
+@media only screen and (min-width: 768px) {
+  :global(.react-datepicker__time-container) {
+    width: 175px !important;
   }
 }
 
-:global(.rc-time-picker-panel-input) {
-  height: 30px !important;
+@media only screen and (min-width: 1440px) {
+  :global(.react-datepicker__time-container) {
+    width: 232px !important;
+  }
 }
-
-:global(.rc-time-picker-panel-inner) {
-  background-color: white !important;
-  width: 150px;
-  position: absolute !important;
-  top: 57px !important;
-  left: 25px !important;
-  z-index: 1001 !important;
-  box-shadow: 0 20px 69px 0 rgba(0, 0, 0, 0.07) !important;
+:global(ul.react-datepicker__time-list) {
+  height: 124px !important;
   border: none !important;
+  width: 100% !important;
+  color: var(--dropdown_color) !important;
+}
+
+:global(.react-datepicker__triangle) {
+  display: none !important;
+}
+
+:global(.react-datepicker) {
+  border: 1px solid var(--border-input) !important;
   border-radius: 12px !important;
-  display: flex;
-  flex-direction: column;
 }
 
-@media only screen and (min-width: 1440px) {
-  :global(.rc-time-picker-panel-inner) {
-    width: 150px;
-    top: 60px !important;
-    left: 82px !important;
-  }
-}
-:global(.rc-time-picker-panel-combobox) {
-  display: flex !important;
-  gap: 5px !important;
-  justify-content: center !important;
-}
-:global(.rc-time-picker-panel-select) {
-  color: var(--dropdown_color);
-  font-family: inherit;
-  font-size: 14px !important;
-}
-@media only screen and (min-width: 1440px) {
-  :global(.rc-time-picker-panel-select) {
-    font-size: 16px !important;
-  }
-}
-
-:global(.rc-time-picker-panel-select-option-selected) {
-  color: var(--background-color-home) !important;
+:global(.react-datepicker__time-list-item--selected) {
+  color: var(--text-color-black) !important;
   background-color: transparent !important;
 }
 
-:global(.rc-time-picker-panel-select-active li:hover) {
-  color: var(--background-color-home) !important;
+:global(.react-datepicker__time-list-item:hover) {
+  color: var(--text-color-black) !important;
   background-color: transparent !important;
 }
 
-:global(.rc-time-picker-panel-select) {
-  --sb-bg-color: var(--orange-light);
-  --sb-color: var(--background-color-home);
-  --sb-size: 4px;
+:global(.react-datepicker__time-list::-webkit-scrollbar) {
+  width: 3px !important;
 }
 
-:global(.rc-time-picker-panel-select::-webkit-scrollbar) {
-  width: 7px;
+:global(.react-datepicker__time-list::-webkit-scrollbar-track) {
+  background-color: transparent !important;
 }
 
-:global(.rc-time-picker-panel-select::-webkit-scrollbar-track) {
-  background: var(--sb-bg-color);
-  border-radius: 20px;
+:global(.react-datepicker__time-list::-webkit-scrollbar-thumb) {
+  background-color: var(--background-color-home) !important;
 }
 
-:global(.rc-time-picker-panel-select::-webkit-scrollbar-thumb) {
-  background: var(--sb-color);
-  border-radius: 20px;
-}
-
-@supports not selector(::-webkit-scrollbar) {
-  .rc-time-picker-panel-select {
-    scrollbar-color: var(--sb-color) var(--sb-bg-color);
-  }
+:global(.react-datepicker__time-container .react-datepicker__time) {
+  background: transparent !important;
 }

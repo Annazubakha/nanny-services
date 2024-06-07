@@ -4,10 +4,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { appointmentSchema } from '../../schemas';
 import { toast } from 'react-toastify';
 import { postAppointment } from '../../api/api';
-import TimePicker from 'rc-time-picker';
 
-import 'rc-time-picker/assets/index.css';
 import { Icon } from 'components';
+import DatePicker from 'react-datepicker';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const Appointment = ({ name, avatar_url, toggleModal }) => {
   const {
@@ -21,7 +22,6 @@ export const Appointment = ({ name, avatar_url, toggleModal }) => {
   const onSubmit = async (appointment) => {
     try {
       await postAppointment(appointment);
-      console.log(appointment);
       toast.success(
         'Appointment was made sucessfull. Please wait a call from our manager.'
       );
@@ -69,18 +69,27 @@ export const Appointment = ({ name, avatar_url, toggleModal }) => {
               control={control}
               name="time"
               render={({ field }) => (
-                <TimePicker
-                  showSecond={false}
-                  clearIcon={<Icon id="clock" className={s.icon} size={20} />}
-                  placeholder="Meeting time"
+                <DatePicker
+                  showTimeSelect
+                  showTimeSelectOnly
+                  timeIntervals={30}
+                  timeCaption="Meeting time"
+                  placeholderText="00:00"
+                  dateFormat="HH:mm"
+                  timeFormat="HH:mm"
                   value={field.value}
+                  selected={field.value}
                   onChange={(value) => {
+                    console.log(value);
                     field.onChange(value);
                   }}
+                  id="meeting-time"
                 />
               )}
             />
-
+            <label htmlFor="meeting-time">
+              <Icon id="clock" className={s.icon} size={20} />
+            </label>
             <p className={s.form_error}>{errors.time?.message}</p>
           </div>
         </div>
