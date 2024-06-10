@@ -155,11 +155,12 @@
 }
 .auth_links {
   display: flex;
-  gap: 8px;
+  display: none;
 }
-@media only screen and (max-width: 767.99px) {
+@media only screen and (min-width: 768px) {
   .auth_links {
-    display: none;
+    display: flex;
+    gap: 8px;
   }
 }
 /* @media only screen and (min-width: 768px) {

@@ -34,11 +34,11 @@ export const ModalAppointment = ({ children, toggleModal, title }) => {
 
   return ReactDOM.createPortal(
     <div onClick={handleClickOnBackdrop} className={s.wrapper}>
-      <div className={s.content_appointment}>
+      <div className={s.content_appointment_wrapper}>
         <button className={s.closeModalBtn} type="button" onClick={toggleModal}>
           <Icon id="close" size={32} />
         </button>
-        <div>
+        <div className={s.content_appointment}>
           <h2 className={s.title}>{title}</h2>
           {children}
         </div>

@@ -79,3 +79,28 @@
 .dropdown_list_item.active {
   color: var(--text-color-black);
 }
+.inside_wrapper {
+  display: flex;
+  gap: 15px;
+}
+.reset_wrapper {
+  border-radius: 50%;
+  background-color: var(--background-color-home);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 1440px) {
+  .reset_wrapper {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.icon_reset {
+  fill: red;
+  stroke: red;
+}

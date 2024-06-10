@@ -9,7 +9,7 @@ export const NanniesListFavorites = ({ setLoading }) => {
   const [limit, setLimit] = useState(3);
   const [moreNannies, setMoreNannies] = useState(false);
   const [totalNannies, setTotalNannies] = useState(0);
-
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
   const userId = GetUser();
 
   useEffect(() => {
@@ -17,16 +17,19 @@ export const NanniesListFavorites = ({ setLoading }) => {
       setMoreNannies(true);
       try {
         setLoading(true);
+        setIsInitialLoading(true);
         const totalNanniesObject = await getUserFavoritesTotal(userId);
         if (totalNanniesObject) {
           const totalNanniesArray = Object.values(totalNanniesObject);
           setTotalNannies(totalNanniesArray.length);
+          setIsInitialLoading(false);
           if (
             totalNanniesArray.length === 0 ||
             totalNanniesArray.length === 3 ||
             totalNanniesArray.length < limit
           ) {
             setMoreNannies(false);
+            setIsInitialLoading(false);
             toast.info(`You have reached the end of nannies' list.`);
           }
         }
@@ -49,8 +52,9 @@ export const NanniesListFavorites = ({ setLoading }) => {
     fetchFavorites();
   }, [limit, userId, totalNannies, setLoading]);
 
-  const loadMore = () => {
+  const loadMore = (e) => {
     setLimit((prevLimit) => prevLimit + 3);
+    e.target.blur();
   };
 
   return (
@@ -64,7 +68,7 @@ export const NanniesListFavorites = ({ setLoading }) => {
         {nanniesFavorites.length === 0 && (
           <div className={s.text_any}>There are no favorite nannies.</div>
         )}
-        {moreNannies && nanniesFavorites.length !== 0 && (
+        {!isInitialLoading && moreNannies && nanniesFavorites.length !== 0 && (
           <button className={s.btn_more} onClick={loadMore}>
             Load more
           </button>

@@ -9,7 +9,7 @@ body {
   display: flex;
   /* align-items: center; */
   justify-content: center;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 h1,
 h2,
@@ -43,6 +43,20 @@ input::placeholder,
 textarea::placeholder {
   color: var(--text-color-black);
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--orange-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--background-color-home);
+  border-radius: 4px;
+}
+
 @font-face {
   font-family: 'Helvetica Neue', sans-serif;
   src: url('./assets/fonts/HelveticaNeue-Roman.otf') format('otf');

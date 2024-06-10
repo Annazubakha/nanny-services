@@ -2,7 +2,8 @@
   display: none;
 }
 .insideWrapper {
-  height: 315px;
+  height: calc(100vh - 430px);
+  /* height: 315px; */
   width: 100%;
 }
 @media only screen and (min-width: 768px) {
