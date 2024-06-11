@@ -1,14 +1,13 @@
 import { GetUser, ReviewsList } from 'components';
 import { useEffect, useState } from 'react';
-import { Icon } from 'components';
-
+import { toast } from 'react-toastify';
 import {
   addToFavorites,
   getUserFavorites,
   removeFromFavorites,
 } from '../../api/api';
-import { toast } from 'react-toastify';
 import { convertedAge, convertedCharacters } from '../../helpers';
+import { Icon } from 'components';
 import s from './NannyItem.module.css';
 
 export const NannyItem = ({
@@ -32,17 +31,21 @@ export const NannyItem = ({
 
   const [isReadMore, setIsReadMore] = useState(false);
   const [isFavorites, setIsFavorites] = useState(false);
+  console.log(isFavorites);
 
   useEffect(() => {
     const fetchUserFavorites = async () => {
       try {
         const userFavorites = await getUserFavorites(userId);
+        console.log(userId);
+        console.log(userFavorites);
         if (userFavorites) {
           const favoriteKeys = Object.keys(userFavorites);
+          console.log(favoriteKeys);
           const isNannyInFavorites = favoriteKeys.some(
             (key) => userFavorites[key].name === name
           );
-
+          console.log(isNannyInFavorites);
           setIsFavorites(isNannyInFavorites);
         }
       } catch {

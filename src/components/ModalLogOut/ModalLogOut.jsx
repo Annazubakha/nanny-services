@@ -1,8 +1,6 @@
-import { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-
+import { useEffect } from 'react';
 import { Icon } from 'components';
-
 import s from './ModalLogOut.module.css';
 
 const modalRoot =

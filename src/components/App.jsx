@@ -1,7 +1,7 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import SharedLayout from './SharedLayout/SharedLayout';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { PublicRoute, PrivateRoute } from '../routes';
+import SharedLayout from './SharedLayout/SharedLayout';
 
 const Home = lazy(() => import('pages/Home/Home'));
 const Nannies = lazy(() => import('pages/Nannies/Nannies'));

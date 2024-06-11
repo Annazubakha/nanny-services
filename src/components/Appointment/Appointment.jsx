@@ -1,14 +1,12 @@
-import { Controller, useForm } from 'react-hook-form';
-import s from './Appointment.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { appointmentSchema } from '../../schemas';
-import { toast } from 'react-toastify';
-import { postAppointment } from '../../api/api';
-
-import { Icon } from 'components';
+import { Controller, useForm } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
-
 import 'react-datepicker/dist/react-datepicker.css';
+import { toast } from 'react-toastify';
+import { appointmentSchema } from '../../schemas';
+import { postAppointment } from '../../api/api';
+import { Icon } from 'components';
+import s from './Appointment.module.css';
 
 export const Appointment = ({ name, avatar_url, toggleModal }) => {
   const {
@@ -80,7 +78,6 @@ export const Appointment = ({ name, avatar_url, toggleModal }) => {
                   value={field.value}
                   selected={field.value}
                   onChange={(value) => {
-                    console.log(value);
                     field.onChange(value);
                   }}
                   id="meeting-time"

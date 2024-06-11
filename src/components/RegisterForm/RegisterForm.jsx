@@ -1,15 +1,13 @@
-import { useForm } from 'react-hook-form';
-
-import s from './RegisterForm.module.css';
-import { registerSchema } from '../../schemas';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
-import { Icon } from 'components';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, database } from '../../firebase/firebase';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { ref, set } from 'firebase/database';
-import { Loader } from 'components';
+import { registerSchema } from '../../schemas';
+import { auth, database } from '../../firebase/firebase';
+import { Loader, Icon } from 'components';
+import s from './RegisterForm.module.css';
 export const RegisterForm = ({ toggleModal, setUserName }) => {
   const [showPass, setShowPass] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

@@ -1,6 +1,5 @@
-import s from './DecorationTab.module.css';
-
 import { Icon, MoveDecorationTab } from 'components';
+import s from './DecorationTab.module.css';
 
 export const DecorationTab = () => {
   return (

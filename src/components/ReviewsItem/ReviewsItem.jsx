@@ -1,6 +1,6 @@
+import { firstLetter, convertedRating } from '../../helpers';
 import { Icon } from 'components';
 import s from './ReviewsItem.module.css';
-import { firstLetter, convertedRating } from '../../helpers';
 
 export const ReviewsItem = ({ comment, rating, reviewer }) => {
   const firstNameLetter = firstLetter(reviewer);

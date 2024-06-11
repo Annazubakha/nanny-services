@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { fetchNannies } from '../../api/api';
 import { NannyItem } from 'components';
-import { toast } from 'react-toastify';
 import s from './NanniesList.module.css';
 
-export const NanniesList = ({ setLoading }) => {
+export const NanniesList = ({ setLoading, filter }) => {
   const [nannies, setNannies] = useState([]);
   const [limit, setLimit] = useState(3);
   const [moreNannies, setMoreNannies] = useState(true);
@@ -15,11 +15,17 @@ export const NanniesList = ({ setLoading }) => {
       try {
         setLoading(true);
         setIsInitialLoading(true);
-        const nanniesData = await fetchNannies(limit);
+        const nanniesData = await fetchNannies(limit, filter);
+        console.log(filter);
         setNannies(nanniesData);
         setLoading(false);
         setIsInitialLoading(false);
-        if (nanniesData.length === 0 || nanniesData.length < limit) {
+        if (nanniesData.length === 0) {
+          setMoreNannies(false);
+          toast.info(`There are no matches for your filter.`);
+          return;
+        }
+        if (nanniesData.length < limit) {
           setMoreNannies(false);
           toast.info(`You have reached the end of nannies' list.`);
         }
@@ -29,7 +35,8 @@ export const NanniesList = ({ setLoading }) => {
       }
     };
     fetchData();
-  }, [limit, setLoading]);
+    console.log(filter);
+  }, [limit, setLoading, filter]);
 
   const loadMore = (e) => {
     setLimit((prevLimit) => prevLimit + 3);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import s from '../BgImg/BgImg.module.css';
 import { useWindowSizeHook } from '../../helpers';
+import s from '../BgImg/BgImg.module.css';
 
 export const MoveDecorationTab = ({ children }) => {
   const [position, setPosition] = useState({ bottom: 90, right: 0 });

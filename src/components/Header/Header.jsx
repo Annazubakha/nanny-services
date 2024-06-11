@@ -1,5 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
-import s from './Header.module.css';
+import { useEffect, useState } from 'react';
+import { getUserData } from '../../api/api';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebase/firebase';
+import { useModal } from '../hooks';
 import {
   Modal,
   RegisterForm,
@@ -9,12 +13,7 @@ import {
   LogOut,
   BurgerMenu,
 } from '../../components';
-import { useModal } from '../hooks';
-import { useEffect, useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
-
-import { getUserData } from '../../api/api';
+import s from './Header.module.css';
 
 export const Header = () => {
   const [isModalRegister, toggleIsModalRegister] = useModal();

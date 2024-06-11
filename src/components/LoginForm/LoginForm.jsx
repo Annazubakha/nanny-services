@@ -1,15 +1,13 @@
-import { useForm } from 'react-hook-form';
-
-import s from './LoginForm.module.css';
-import { loginSchema } from '../../schemas';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
-import { Icon } from 'components';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-toastify';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
-import { Loader } from 'components';
+import { loginSchema } from '../../schemas';
+import { Loader, Icon } from 'components';
+import s from './LoginForm.module.css';
 export const LoginForm = ({ toggleModal }) => {
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);

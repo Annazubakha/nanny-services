@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase/firebase';
 import { Navigate } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { Loader } from '../components';
+import { auth } from '../firebase/firebase';
 
 export const PrivateRoute = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

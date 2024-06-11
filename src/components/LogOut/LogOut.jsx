@@ -1,9 +1,9 @@
+import { useState } from 'react';
 import { toast } from 'react-toastify';
-import s from './LogOut.module.css';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.js';
 import { Loader } from 'components';
-import { useState } from 'react';
+import s from './LogOut.module.css';
 export const LogOut = ({ toggleModal }) => {
   const [isLoading, setIsLoading] = useState(false);
   const handleLogout = () => {

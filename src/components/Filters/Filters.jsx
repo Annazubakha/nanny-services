@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import { Icon } from 'components';
 import s from './Filters.module.css';
-import { useState } from 'react';
 
-export const Filters = () => {
+export const Filters = ({ setFilter }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [filter, setFilter] = useState('A to Z');
+  const [filter, setFilterLocal] = useState('A to Z');
+
   const toggleDropdown = () => {
     setIsOpen((prevState) => !prevState);
   };
@@ -13,7 +14,13 @@ export const Filters = () => {
   };
   const handleFilter = (filter) => {
     setFilter(filter);
+    setFilterLocal(filter);
     setIsOpen(false);
+  };
+  const handleResetFilter = (e) => {
+    setFilterLocal('A to Z');
+    setFilter('A to Z');
+    e.target.blur();
   };
   return (
     <div className={s.filter_wrapper}>
@@ -83,9 +90,9 @@ export const Filters = () => {
             </li>
           </ul>
         )}
-        <div className={s.reset_wrapper}>
-          <Icon id="reset" size={36} className={s.icon} />
-        </div>
+        <button className={s.reset_wrapper} onClick={handleResetFilter}>
+          <Icon id="reset" size={18} className={s.icon_reset} />
+        </button>
       </div>
     </div>
   );

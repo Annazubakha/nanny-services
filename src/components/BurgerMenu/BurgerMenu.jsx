@@ -1,3 +1,9 @@
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { getUserData } from '../../api/api';
+import { auth } from '../../firebase/firebase';
+import { useModal } from '../hooks';
 import {
   Icon,
   Modal,
@@ -7,12 +13,6 @@ import {
   LogOut,
 } from 'components';
 import s from './BurgerMenu.module.css';
-import { Link, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { getUserData } from '../../api/api';
-import { auth } from '../../firebase/firebase';
-import { useModal } from '../hooks';
 
 export const BurgerMenu = ({ handleBurgerClick }) => {
   const [isModalRegister, toggleIsModalRegister] = useModal();

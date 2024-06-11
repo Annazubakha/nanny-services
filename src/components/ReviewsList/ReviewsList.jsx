@@ -1,7 +1,7 @@
-import { ReviewsItem } from 'components';
-import s from './ReviewsList.module.css';
 import { ModalAppointment, Appointment } from '../../components';
 import { useModal } from '../hooks';
+import { ReviewsItem } from 'components';
+import s from './ReviewsList.module.css';
 export const ReviewsList = ({ reviews, name, avatar_url }) => {
   const [isModalAppointment, toggleIsModalAppointment] = useModal();
   return (

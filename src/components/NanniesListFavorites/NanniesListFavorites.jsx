@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import s from './NanniesListFavorites.module.css';
+import { toast } from 'react-toastify';
 import { getUserFavoritesLimited, getUserFavoritesTotal } from '../../api/api';
 import { GetUser, NannyItem } from 'components';
-import { toast } from 'react-toastify';
+import s from './NanniesListFavorites.module.css';
 
-export const NanniesListFavorites = ({ setLoading }) => {
+export const NanniesListFavorites = ({ setLoading, filter }) => {
   const [nanniesFavorites, setNanniesFavorites] = useState([]);
   const [limit, setLimit] = useState(3);
   const [moreNannies, setMoreNannies] = useState(false);
@@ -23,6 +23,7 @@ export const NanniesListFavorites = ({ setLoading }) => {
           const totalNanniesArray = Object.values(totalNanniesObject);
           setTotalNannies(totalNanniesArray.length);
           setIsInitialLoading(false);
+
           if (
             totalNanniesArray.length === 0 ||
             totalNanniesArray.length === 3 ||
@@ -36,7 +37,8 @@ export const NanniesListFavorites = ({ setLoading }) => {
 
         const nanniesFavoritesObject = await getUserFavoritesLimited(
           userId,
-          limit
+          limit,
+          filter
         );
         setLoading(false);
         if (nanniesFavoritesObject) {
@@ -50,7 +52,7 @@ export const NanniesListFavorites = ({ setLoading }) => {
       }
     };
     fetchFavorites();
-  }, [limit, userId, totalNannies, setLoading]);
+  }, [limit, userId, totalNannies, setLoading, filter]);
 
   const loadMore = (e) => {
     setLimit((prevLimit) => prevLimit + 3);
@@ -65,7 +67,7 @@ export const NanniesListFavorites = ({ setLoading }) => {
             <NannyItem key={nanny.name} {...nanny} />
           ))}
         </ul>
-        {nanniesFavorites.length === 0 && (
+        {isInitialLoading && nanniesFavorites.length === 0 && (
           <div className={s.text_any}>There are no favorite nannies.</div>
         )}
         {!isInitialLoading && moreNannies && nanniesFavorites.length !== 0 && (
