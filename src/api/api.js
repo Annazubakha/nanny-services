@@ -124,7 +124,6 @@ export const getUserFavorites = async (uid) => {
   try {
     const snapshot = await get(ref(database, `users/${uid}/favorites`));
     if (snapshot.exists()) {
-      console.log(snapshot.val());
       return snapshot.val();
     } else {
       return null;
@@ -196,13 +195,11 @@ export const getUserFavoritesLimited = async (uid, limit, filter) => {
       snapshot.forEach((childSnapshot) => {
         nannies.push(childSnapshot.val());
       });
-      console.log(nannies);
       return nannies;
     } else {
       return null;
     }
-  } catch (error) {
-    console.log(error.message);
+  } catch {
     toast.error('Something went wrong.');
   }
 };

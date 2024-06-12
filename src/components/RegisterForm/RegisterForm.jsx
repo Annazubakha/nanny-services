@@ -42,7 +42,9 @@ export const RegisterForm = ({ toggleModal, setUserName }) => {
       toggleModal();
       return user;
     } catch {
-      toast.error('Something went wrong.');
+      toast.error(
+        'Account with such email is already in use. Please try again.'
+      );
     }
     setIsLoading(false);
   };

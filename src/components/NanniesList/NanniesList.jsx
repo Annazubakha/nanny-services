@@ -9,6 +9,7 @@ export const NanniesList = ({ setLoading, filter }) => {
   const [limit, setLimit] = useState(3);
   const [moreNannies, setMoreNannies] = useState(true);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       setMoreNannies(true);
@@ -16,33 +17,30 @@ export const NanniesList = ({ setLoading, filter }) => {
         setLoading(true);
         setIsInitialLoading(true);
         const nanniesData = await fetchNannies(limit, filter);
-        console.log(filter);
-        setNannies(nanniesData);
+        if (filter === 'Z to A' || filter === 'Popular') {
+          setNannies(nanniesData.reverse());
+        } else {
+          setNannies(nanniesData);
+        }
         setLoading(false);
         setIsInitialLoading(false);
-        if (nanniesData.length === 0) {
-          setMoreNannies(false);
-          toast.info(`There are no matches for your filter.`);
-          return;
-        }
         if (nanniesData.length < limit) {
           setMoreNannies(false);
           toast.info(`You have reached the end of nannies' list.`);
         }
-      } catch (error) {
+      } catch {
         setIsInitialLoading(false);
-        toast.error(`Something went wrong.`);
+        setMoreNannies(false);
+        toast.info(`There are no matches for your filter.`);
       }
     };
     fetchData();
-    console.log(filter);
   }, [limit, setLoading, filter]);
 
   const loadMore = (e) => {
     setLimit((prevLimit) => prevLimit + 3);
     e.target.blur();
   };
-
   return (
     <>
       <div className={s.wrapper}>

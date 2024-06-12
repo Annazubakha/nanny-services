@@ -9,6 +9,7 @@ import {
 import { convertedAge, convertedCharacters } from '../../helpers';
 import { Icon } from 'components';
 import s from './NannyItem.module.css';
+import { useLocation } from 'react-router-dom';
 
 export const NannyItem = ({
   name,
@@ -23,29 +24,25 @@ export const NannyItem = ({
   price_per_hour,
   rating,
   reviews,
+  onRemoveFromFavorites,
 }) => {
   const userId = GetUser();
 
   const age = convertedAge(birthday);
   const formatedCharacters = convertedCharacters(characters);
-
+  const locationPath = useLocation();
   const [isReadMore, setIsReadMore] = useState(false);
   const [isFavorites, setIsFavorites] = useState(false);
-  console.log(isFavorites);
 
   useEffect(() => {
     const fetchUserFavorites = async () => {
       try {
         const userFavorites = await getUserFavorites(userId);
-        console.log(userId);
-        console.log(userFavorites);
         if (userFavorites) {
           const favoriteKeys = Object.keys(userFavorites);
-          console.log(favoriteKeys);
           const isNannyInFavorites = favoriteKeys.some(
             (key) => userFavorites[key].name === name
           );
-          console.log(isNannyInFavorites);
           setIsFavorites(isNannyInFavorites);
         }
       } catch {
@@ -74,6 +71,9 @@ export const NannyItem = ({
           if (favoriteNanny) {
             await removeFromFavorites(userId, favoriteNanny);
             setIsFavorites(false);
+            if (locationPath.pathname === '/favorites') {
+              onRemoveFromFavorites(name);
+            }
           } else {
             await addToFavorites(userId, {
               name,

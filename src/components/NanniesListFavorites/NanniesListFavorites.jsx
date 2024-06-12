@@ -43,7 +43,12 @@ export const NanniesListFavorites = ({ setLoading, filter }) => {
         setLoading(false);
         if (nanniesFavoritesObject) {
           const nanniesFavoritesArray = Object.values(nanniesFavoritesObject);
-          setNanniesFavorites(nanniesFavoritesArray);
+
+          if (filter === 'Z to A' || filter === 'Popular') {
+            setNanniesFavorites(nanniesFavoritesArray.reverse());
+          } else {
+            setNanniesFavorites(nanniesFavoritesArray);
+          }
         } else {
           return;
         }
@@ -59,12 +64,21 @@ export const NanniesListFavorites = ({ setLoading, filter }) => {
     e.target.blur();
   };
 
+  const handleRemoveFromFavorites = (name) => {
+    setNanniesFavorites((prevNannies) =>
+      prevNannies.filter((nanny) => nanny.name !== name)
+    );
+  };
   return (
     <>
       <div className={s.wrapper}>
         <ul className={s.list}>
           {nanniesFavorites.map((nanny) => (
-            <NannyItem key={nanny.name} {...nanny} />
+            <NannyItem
+              key={nanny.name}
+              {...nanny}
+              onRemoveFromFavorites={handleRemoveFromFavorites}
+            />
           ))}
         </ul>
         {isInitialLoading && nanniesFavorites.length === 0 && (
