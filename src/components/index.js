@@ -18,5 +18,5 @@ export * from './ModalLogOut/ModalLogOut.jsx';
 export * from './Loader/Loader.jsx';
 export * from './GetUser/GetUser.jsx';
 export * from './NanniesListFavorites/NanniesListFavorites.jsx';
-export * from './BurgerMenu/BurgerMenu.jsx';
 export * from './ModalAppointment/ModalAppointment.jsx';
+export * from './BurgerMenu/BurgerMenu.jsx';
