@@ -112,6 +112,7 @@
   font-size: 16px;
   line-height: 1.2;
   letter-spacing: -0.01em;
+  transition: transform 0.3s ease;
 }
 
 @media only screen and (min-width: 1440px) {
@@ -121,4 +122,9 @@
     gap: 18px;
     font-size: 20px;
   }
+}
+
+.link_start:hover,
+.link_start:focus {
+  transform: scale(1.1);
 }

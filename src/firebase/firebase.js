@@ -4,14 +4,13 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyC7HW9UuTvStiHyUKebnG6vYgFnbta-v3g',
-  authDomain: 'nanniesservices-71679.firebaseapp.com',
-  databaseURL:
-    'https://nanniesservices-71679-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'nanniesservices-71679',
-  storageBucket: 'nanniesservices-71679.appspot.com',
-  messagingSenderId: '341576182826',
-  appId: '1:341576182826:web:07f2c8f64b34700485a753',
+  apiKey: import.meta.env.VITE_APP_API_KEY,
+  authDomain: import.meta.env.VITE_APP_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_APP_DATABASE_URL,
+  projectId: import.meta.env.VITE_APP_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
