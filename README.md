@@ -1,4 +1,4 @@
- <h1>Nannies.Services</h1>
+ <h1>Nanny.Services</h1>
 
 <h2>An application where you can search and book nanny.</h2>
  <img src="./src/assets/images/photo_project.png" alt="Photo of project"/>
