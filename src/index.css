@@ -90,6 +90,6 @@ textarea::placeholder {
   --error-color: #f03f3b;
   --text-gris-color: #8a8a89;
   --white-color: #fff;
-  --green-color: #38cd3e;
   --dropdown_color: rgba(17, 16, 28, 0.3);
+  --green-color: #38cd3e;
 }
